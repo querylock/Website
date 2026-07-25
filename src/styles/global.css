@@ -234,7 +234,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg-1); }
 .nav-logo svg { width: 30px; height: 30px; }
 .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; color: var(--ql-deep-purple); }
-.nav-left { display: flex; align-items: center; gap: 36px; }
+.nav-left { display: flex; align-items: center; }
+.nav-right { display: flex; align-items: center; gap: 28px; }
 .nav-links { display: none; gap: 28px; align-items: center; }
 .nav-links a { font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--fg-1); text-decoration: none; letter-spacing: 0.01em; transition: color .14s var(--ease-out); }
 .nav-links a:hover { color: var(--ql-violet); }
@@ -475,7 +476,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* ABOUT PAGE */
 .about-hero { position: relative; overflow: hidden; background: #fff; padding: 96px 0 72px; text-align: center; }
-.about-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(203,68,239,.10), transparent 32%), radial-gradient(circle at 80% 10%, rgba(123,42,219,.10), transparent 28%); pointer-events: none; }
+.about-hero::before { display: none; }
 .about-hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
 .about-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px,7vw,76px); line-height: 1.02; letter-spacing: -.035em; margin: 24px 0 24px; }
 .about-hero .lead { font-family: var(--font-body); font-size: clamp(18px,2vw,22px); line-height: 1.65; color: var(--fg-2); max-width: 760px; margin: 0 auto; }
