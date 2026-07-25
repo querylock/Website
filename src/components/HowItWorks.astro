@@ -36,32 +36,48 @@ const outcomes = [
   <div class="container-narrow">
     <div class="how-head">
       <span class="eyebrow">Five steps</span>
-      <h2>How a workshop <span class="gradient-text">comes together</span></h2>
+      <h2>How a workshop comes together</h2>
     </div>
 
     <ol class="how-steps">
-      {steps.map((step, i) => (
-        <li class="how-step">
-          <div class="how-step-number" aria-hidden="true">{i + 1}</div>
-          <div class="how-step-body">
-            <h3>{step.title}</h3>
-            <p>{step.body}</p>
-          </div>
-        </li>
-      ))}
+      {
+        steps.map((step, i) => (
+          <li class="how-step">
+            <div class="how-step-number" aria-hidden="true">
+              {i + 1}
+            </div>
+            <div class="how-step-body">
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        ))
+      }
     </ol>
 
     <div class="outcomes-card">
       <p class="outcomes-heading">After training, teams are better prepared to:</p>
       <ul class="outcomes-list">
-        {outcomes.map((item) => (
-          <li class="outcomes-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            {item}
-          </li>
-        ))}
+        {
+          outcomes.map((item) => (
+            <li class="outcomes-item">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              {item}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
@@ -108,7 +124,7 @@ const outcomes = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #7B2ADB 0%, #CB44EF 100%);
+    background: linear-gradient(135deg, #7b2adb 0%, #cb44ef 100%);
     color: #fff;
     font-family: var(--font-display);
     font-weight: var(--fw-bold);
@@ -139,7 +155,7 @@ const outcomes = [
   /* outcomes card */
   .outcomes-card {
     margin-top: 48px;
-    background: linear-gradient(135deg, #260070 0%, #7B2ADB 60%, #9B30E8 100%);
+    background: linear-gradient(135deg, #260070 0%, #7b2adb 60%, #9b30e8 100%);
     border-radius: var(--radius-xl);
     padding: 36px 40px;
     display: flex;

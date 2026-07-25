@@ -22,3 +22,19 @@ const { title, description = 'QueryLock — Cybersecurity education made practic
     <slot />
   </body>
 </html>
+
+<style is:global>
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body > main {
+    flex: 1;
+  }
+</style>
