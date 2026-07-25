@@ -1,0 +1,258 @@
+---
+const trainings = [
+  {
+    id: "secure-coding",
+    title: "Secure Coding Training",
+    tagline: "We tailor the workshop around your team's real development work.",
+    desc: "We tailor the workshop around your team's tech stack, application patterns, architecture, and development workflow so developers understand how security shows up in the code they write every day. Instead of memorizing vulnerability names, your team learns how insecure patterns happen, how to prevent them earlier, and how to make safer decisions while building features.",
+    bullets: [
+      "Spot risky patterns during development",
+      "Understand authentication, authorization, access control, APIs, error handling, and common data risks",
+      "Make safer design choices before code review catches them",
+      "Learn to recognize and fix issues in your own codebase",
+      "Build security habits that carry forward into future work",
+    ],
+    addon: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  },
+  {
+    id: "findings-based",
+    title: "Findings Based Training",
+    tagline: "A customized training built around your actual issues. It makes findings stick.",
+    desc: "We turn your pentest findings into practical lessons for your team. We explain what happened, why it happened, how it could show up in similar code, and what patterns developers can use to prevent it in the future — especially useful for teams that keep seeing similar findings.",
+    bullets: [
+      "Understand the root cause behind past findings",
+      "See what similar issues look like in real code",
+      "Recognize similar patterns in future work",
+      "Apply specific remediations, not just general guidance",
+      "Improve communication between security and engineering",
+      "Reduce repeat issues over time",
+    ],
+    addon: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`,
+  },
+  {
+    id: "ai-llm",
+    title: "AI and LLM Security Training",
+    tagline: "AI security training needs to go beyond chatbot tricks.",
+    desc: "Built for teams creating, integrating, or managing AI features — chatbots, internal assistants, connected tools, RAG systems, customer-facing workflows, or AI features inside an existing product. We focus on where AI creates real risk, where traditional security still matters, and when a simpler solution may be safer than using AI at all.",
+    bullets: [
+      "Understand prompt injection and data leakage risks",
+      "Design safer AI workflows and tool integrations",
+      "Recognize unsafe model behavior and over-trust",
+      "Think through guardrails, permissions, logging, and sensitive data exposure",
+      "Decide when AI is the right solution and when it is not",
+      "Build AI features with security in mind from the beginning",
+    ],
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h.01M15 9h.01M9 15h6"/><circle cx="12" cy="12" r="3"/></svg>`,
+  },
+  {
+    id: "product-leadership",
+    title: "Security for Product and Leadership Teams",
+    tagline: "Security decisions are easier when everyone understands the tradeoffs.",
+    desc: "Built for product managers, engineering leaders, executives, and mixed teams that need to make better security decisions without going deep into code. We focus on real risk, user impact, prioritization, and how security choices affect the product.",
+    bullets: [
+      "Understand what security findings actually mean",
+      "Prioritize remediation with better context",
+      "Ask stronger questions during planning and release discussions",
+      "Support developers without turning security into a blocker",
+      "Understand application, AI, and data security risks at a decision-making level",
+      "Build a stronger security culture without fear-based messaging",
+    ],
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+];
+---
+
+<section class="available-trainings section section-lg">
+  <div class="container">
+    <div class="available-trainings-head">
+      <span class="eyebrow">Available Trainings</span>
+      <h2>Choose a training that&rsquo;s right for <span class="gradient-text">your team</span></h2>
+      <p class="available-trainings-sub">
+        Not a security presentation you&rsquo;ll soon forget added to the first slide. Every workshop
+        is shaped around your team&rsquo;s technology, experience level, products and processes, and
+        recent security context &mdash; it&rsquo;s to teach the concepts that matter for the way your
+        team actually builds.
+      </p>
+    </div>
+
+    <div class="available-trainings-grid">
+      {trainings.map((t) => (
+        <article class="available-training-card">
+          <div class="available-training-icon" set:html={t.icon} />
+          <div class="available-training-body">
+            <h3>{t.title}</h3>
+            <p class="available-training-tagline">{t.tagline}</p>
+            <p class="available-training-desc">{t.desc}</p>
+            <ul class="available-training-bullets">
+              {t.bullets.map((b) => (
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {b}
+                </li>
+              ))}
+            </ul>
+            {t.addon && (
+              <div class="available-training-addon">
+                <hr class="available-training-hr" />
+                <p class="available-training-addon-label">Optional add-on</p>
+                <p class="available-training-addon-text">{t.addon}</p>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .available-trainings {
+    background: #fff;
+  }
+
+  .available-trainings-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .available-trainings-sub {
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--fg-2);
+    max-width: 60ch;
+  }
+
+  .available-trainings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 880px) {
+    .available-trainings-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .available-training-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out), border-color 0.22s var(--ease-out);
+  }
+
+  .available-training-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--ql-lavender-400);
+  }
+
+  @media (min-width: 760px) {
+    .available-training-card {
+      padding: 40px;
+    }
+  }
+
+  .available-training-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #260070 0%, #7B2ADB 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(123, 42, 219, 0.28);
+  }
+
+  .available-training-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .available-training-body h3 {
+    font-size: var(--fs-h3);
+    color: var(--fg-1);
+  }
+
+  .available-training-tagline {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semi);
+    color: var(--ql-violet);
+    font-style: italic;
+    line-height: var(--lh-normal);
+  }
+
+  .available-training-desc {
+    font-size: var(--fs-small);
+    line-height: var(--lh-loose);
+    color: var(--fg-2);
+  }
+
+  .available-training-bullets {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .available-training-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: var(--fs-small);
+    color: var(--fg-2);
+    line-height: var(--lh-normal);
+  }
+
+  .available-training-bullets li svg {
+    flex-shrink: 0;
+    color: var(--ql-magenta);
+    margin-top: 1px;
+  }
+
+  .available-training-addon {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .available-training-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 0 4px;
+  }
+
+  .available-training-addon-label {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-caption);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+
+  .available-training-addon-text {
+    font-size: var(--fs-small);
+    line-height: var(--lh-loose);
+    color: var(--fg-2);
+  }
+</style>
