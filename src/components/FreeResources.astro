@@ -1,0 +1,48 @@
+---
+import { freeResources } from '../data/content';
+
+const patternCells: { x: number; y: number; sz: number; color: string }[] = [];
+for (let i = 0; i < 100; i++) {
+  patternCells.push({
+    x: (i * 71 + 23) % 1400,
+    y: (i * 109 + 17) % 720,
+    sz: i % 8 === 0 ? 12 : (i % 4 === 0 ? 7 : 4),
+    color: i % 7 === 0 ? '#CB44EF' : '#EAB4F8',
+  });
+}
+
+const checklistIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l2 2 4-4M8 14l2 2 4-4"/></svg>`;
+const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11a4 4 0 014 4v12H8a4 4 0 01-4-4V4z"/><path d="M4 16a4 4 0 014-4h11"/></svg>`;
+---
+
+<section class="free-resources section section-lg" id="free">
+  <div class="pattern" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 1400 720" preserveAspectRatio="xMidYMid slice">
+      {patternCells.map((c, i) => (
+        <rect key={i} x={c.x} y={c.y} width={c.sz} height={c.sz} fill={c.color} />
+      ))}
+    </svg>
+  </div>
+  <div class="container" style="position:relative">
+    <div class="section-head-c" style="max-width:760px">
+      <span class="eyebrow" style="color:var(--ql-lavender-200)">Free starter resources</span>
+      <h2 style="color:#fff">Read first. Decide later. <span style="background:linear-gradient(135deg,#EAB4F8,#CB44EF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent">No demos.</span></h2>
+      <p style="color:rgba(255,255,255,.78)">Five guides and checklists are free with an email. We send roughly one short update a month &mdash; actual security signal, not lead nurturing.</p>
+    </div>
+
+    <div class="free-grid">
+      {freeResources.map(item => (
+        <a href="#" class="free-item">
+          <div class="free-item-glyph" set:html={item.kind === 'Checklist' ? checklistIcon : guideIcon} />
+          <div class="free-item-text">
+            <div class="free-item-label">{item.kind} · Free</div>
+            <div class="free-item-title">{item.title}</div>
+          </div>
+          <svg class="free-item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

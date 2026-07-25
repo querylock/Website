@@ -1,0 +1,15 @@
+<svg version="1.1" width="858.09064" height="775.77332" viewBox="0 0 858.09067 775.77331" xmlns="http://www.w3.org/2000/svg">
+  <title>QueryLock mark</title>
+  <defs>
+    <clipPath clipPathUnits="userSpaceOnUse" id="qlClip57"><path d="M 0,581.83 H 643.568 V 0 H 0 Z" transform="translate(-328.70123,-432.84461)"></path></clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="qlClip59"><path d="M 0,581.83 H 643.568 V 0 H 0 Z" transform="translate(-328.70123,-218.90131)"></path></clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="qlClip61"><path d="M 0,581.83 H 643.568 V 0 H 0 Z"></path></clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="qlClip63"><path d="M 0,581.83 H 643.568 V 0 H 0 Z"></path></clipPath>
+  </defs>
+  <g transform="translate(-8119.9998)">
+    <path class="ql-ring" fill="#cb44ef" d="m 0,0 v -69.916 c -35.299,0 -64.54,-26.015 -69.549,-59.897 h -70.309 C -134.534,-57.223 -73.955,0 0,0" transform="matrix(1.3333333,0,0,-1.3333333,8558.2683,198.6472)" clip-path="url(#qlClip57)"></path>
+    <path class="ql-ring" fill="#cb44ef" d="m 0,0 v -69.916 c -14.371,0 -28.244,2.15 -41.304,6.188 -9.887,3.016 -19.302,7.134 -28.113,12.169 -39.469,22.528 -66.953,63.648 -70.467,111.456 h 70.335 c 0.027,-0.288 0.079,-0.577 0.132,-0.865 3.251,-20.219 15.131,-37.554 31.758,-48.07 C -26.775,4.012 -13.847,0 0,0" transform="matrix(1.3333333,0,0,-1.3333333,8558.2683,483.90493)" clip-path="url(#qlClip59)"></path>
+    <path class="ql-pixel" fill="#7b2adb" d="M 391.778,211.958 H 328.7 v 63.055 h 63.078 z" transform="matrix(1.3333333,0,0,-1.3333333,8120,775.77333)" clip-path="url(#qlClip61)"></path>
+    <path class="ql-pixel" fill="#7b2adb" d="m 454.751,148.985 h -63.078 v 63.055 h 63.078 z" transform="matrix(1.3333333,0,0,-1.3333333,8120,775.77333)" clip-path="url(#qlClip63)"></path>
+  </g>
+</svg>

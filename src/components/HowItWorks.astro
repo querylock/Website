@@ -1,0 +1,198 @@
+---
+const steps = [
+  {
+    title: "You reach out",
+    body: "Tell us what kind of training you are interested in and what your team is trying to improve. You do not need to have everything figured out before contacting us.",
+  },
+  {
+    title: "You share what you are comfortable sharing",
+    body: "Give us as much or as little context as your organization allows — tech stack, architecture, application type, team experience level, common security concerns, or a redacted past pentest report. You also specify what you want covered: the SDLC, teaching developers to run their own secure code reviews, or security integrating AI. It's up to you.",
+  },
+  {
+    title: "We tailor the workshop",
+    body: "We use the content provided to build training that fits your team. If your team does not use databases, we are not going to waste your time with a workshop centered on SQL injection. We only cover content that will benefit your team.",
+  },
+  {
+    title: "We deliver hands-on training",
+    body: "Your team joins a live workshop with clear explanations, realistic examples, demos, and hands-on exercises. We teach the concept, show how the issue happens, explain why it matters, and walk through what secure coding looks like in practice.",
+  },
+  {
+    title: "Your team leaves ready to apply it",
+    body: "The goal is not just to complete training. The goal is to change how your team builds, reviews, and thinks about security.",
+  },
+];
+
+const outcomes = [
+  "Write secure code from the start",
+  "Understand and fix findings faster",
+  "Communicate more clearly with security teams",
+  "Catch risky patterns earlier",
+  "Make better design decisions",
+  "Reduce repeat issues over time",
+];
+---
+
+<section class="how-section section section-lg">
+  <div class="container-narrow">
+    <div class="how-head">
+      <span class="eyebrow">Five steps</span>
+      <h2>How a workshop <span class="gradient-text">comes together</span></h2>
+    </div>
+
+    <ol class="how-steps">
+      {steps.map((step, i) => (
+        <li class="how-step">
+          <div class="how-step-number" aria-hidden="true">{i + 1}</div>
+          <div class="how-step-body">
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="outcomes-card">
+      <p class="outcomes-heading">After training, teams are better prepared to:</p>
+      <ul class="outcomes-list">
+        {outcomes.map((item) => (
+          <li class="outcomes-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-section {
+    background: var(--bg-alt);
+  }
+
+  .how-head {
+    text-align: center;
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .how-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .how-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .how-step:last-child {
+    border-bottom: none;
+  }
+
+  .how-step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7B2ADB 0%, #CB44EF 100%);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .how-step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .how-step-body h3 {
+    font-size: var(--fs-h4);
+    color: var(--fg-1);
+  }
+
+  .how-step-body p {
+    font-size: var(--fs-small);
+    color: var(--fg-2);
+    line-height: var(--lh-loose);
+  }
+
+  /* outcomes card */
+  .outcomes-card {
+    margin-top: 48px;
+    background: linear-gradient(135deg, #260070 0%, #7B2ADB 60%, #9B30E8 100%);
+    border-radius: var(--radius-xl);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .outcomes-heading {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h4);
+    color: #fff;
+    margin: 0;
+  }
+
+  .outcomes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px 48px;
+  }
+
+  .outcomes-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: var(--lh-normal);
+  }
+
+  .outcomes-item svg {
+    flex-shrink: 0;
+    color: var(--ql-lavender-400);
+    margin-top: 1px;
+  }
+
+  @media (min-width: 600px) {
+    .how-step {
+      gap: 32px;
+      padding: 32px 0;
+    }
+
+    .how-step-number {
+      width: 44px;
+      height: 44px;
+      font-size: 17px;
+    }
+
+    .outcomes-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

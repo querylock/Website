@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Offerings from '../components/Offerings.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import TwoPaths from '../components/TwoPaths.astro';
+import TrainingTeaser from '../components/TrainingTeaser.astro';
+import Blog from '../components/Blog.astro';
+import FreeResources from '../components/FreeResources.astro';
+import Belief from '../components/Belief.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav';
+import GuideSeries from '../components/GuideSeries';
+import FAQ from '../components/FAQ';
+import Newsletter from '../components/Newsletter';
+---
+
+<Layout title="QueryLock — Security education made practical" description="QueryLock makes cybersecurity easier to understand with practical guides and hands-on security training built around your team's needs.">
+  <Nav active="home" client:load />
+  <main>
+    <Hero />
+    <WhyChooseUs />
+    <Offerings />
+    <!--<TwoPaths />-->
+    <!--<GuideSeries client:load />-->
+    <!--<TrainingTeaser />-->
+    <FreeResources />
+    <!--<Blog />-->
+    <Belief />
+    <FAQ client:load />
+    <Newsletter client:load />
+    <FinalCTA />
+  </main>
+  <Footer />
+</Layout>

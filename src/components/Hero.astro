@@ -1,0 +1,36 @@
+---
+const cells: { x: number; y: number; sz: number; color: string; op: number }[] = [];
+for (let i = 0; i < 80; i++) {
+  cells.push({
+    x: (i * 73 + 19) % 1400,
+    y: (i * 109 + 41) % 900,
+    sz: i % 7 === 0 ? 10 : (i % 4 === 0 ? 6 : 4),
+    color: i % 9 === 0 ? '#CB44EF' : '#7B2ADB',
+    op: i % 3 === 0 ? 0.12 : 0.07,
+  });
+}
+---
+
+<section class="hero">
+  <div class="hero-bg-pattern" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+      {cells.map((c, i) => (
+        <rect key={i} x={c.x} y={c.y} width={c.sz} height={c.sz} fill={c.color} opacity={c.op} />
+      ))}
+    </svg>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <span class="hero-badge"><span class="dot"></span>Security Through Education</span>
+      <h1>Fixing Cybersecurity Starts with <span class="gradient-text">Teaching It Better</span></h1>
+      <p class="hero-sub">QueryLock makes cybersecurity easier to understand with guides everyone can follow and hands-on security training built around your team&rsquo;s needs. We help learners build real confidence, and we help teams write secure code from the start.</p>
+      <div class="hero-ctas">
+        <a href="/training#contact" class="btn btn-primary btn-lg">
+          Schedule Training
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/learning" class="btn btn-outline btn-lg">Explore the Guides</a>
+      </div>
+    </div>
+  </div>
+</section>

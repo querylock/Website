@@ -1,0 +1,43 @@
+---
+const items = [
+  {
+    title: 'Start with the foundation',
+    desc: 'We do not assume you already know the terminology. Every guide and workshop begins where the learner actually is.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>`,
+  },
+  {
+    title: 'Teach for understanding',
+    desc: 'Security should not be memorized just to check a box. We explain how the system works, why the risk exists, and what safer choices look like.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>`,
+  },
+  {
+    title: 'Tailored to real systems',
+    desc: 'Training reflects your stack, architecture, experience level, and goals. We focus on the risks that matter to the way your team actually builds.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  },
+  {
+    title: 'Built for lasting change',
+    desc: 'The goal is not another presentation that gets forgotten. It is stronger habits, earlier decisions, and fewer repeat security issues over time.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>`,
+  },
+];
+---
+
+<section class="why-section section section-lg" id="why">
+  <div class="container">
+    <div class="section-head-c">
+      <span class="eyebrow">Why QueryLock</span>
+      <h2>Understanding changes how people approach security.</h2>
+      <p>Developers who understand why a vulnerability exists are better prepared to prevent it. People who understand why safeguards matter are more likely to use them.</p>
+    </div>
+    <div class="why-grid">
+      {items.map(item => (
+        <article class="why-card">
+          <div class="why-icon" set:html={item.icon} />
+          <h3>{item.title}</h3>
+          <p class="desc">{item.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
