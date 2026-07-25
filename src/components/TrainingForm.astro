@@ -1,0 +1,268 @@
+<section class="training-form-section section section-lg" id="contact">
+  <div class="container">
+    <div class="training-form-layout">
+      <div class="training-form-copy">
+        <span class="eyebrow">Get Started</span>
+        <h2>Bring QueryLock Training to Your Team</h2>
+        <p>
+          Tell us what your team is working on, what you want to improve, and what kind of
+          training you are interested in. We will help shape the right workshop for your team,
+          whether you already know exactly what you need or are still figuring out where to start.
+        </p>
+        <div class="training-form-note">
+          <p>
+            Not sure what training your team needs yet? Reach out anyway. We can help you find
+            the right starting point.
+          </p>
+        </div>
+      </div>
+
+      <div class="training-form-card">
+        <form class="training-form" name="training-request" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="training-request" />
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="tf-name">Name</label>
+              <input type="text" id="tf-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="tf-email">Work Email</label>
+              <input type="email" id="tf-email" name="email" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="tf-company">Company</label>
+              <input type="text" id="tf-company" name="company" autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="tf-team-size">Team Size (Approximate)</label>
+              <input type="text" id="tf-team-size" name="team_size" placeholder="e.g. 12" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="tf-training-type">Training Type</label>
+            <select id="tf-training-type" name="training_type">
+              <option value="secure-coding">Secure Coding Training</option>
+              <option value="findings-based">Findings Based Training</option>
+              <option value="ai-llm">AI and LLM Security Training</option>
+              <option value="product-leadership">Security for Product and Leadership Teams</option>
+              <option value="unsure">Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Preferred Format</label>
+            <div class="format-options">
+              <label class="format-option">
+                <input type="radio" name="format" value="virtual" checked />
+                <span>Virtual</span>
+              </label>
+              <label class="format-option">
+                <input type="radio" name="format" value="in-person" />
+                <span>In Person</span>
+              </label>
+              <label class="format-option">
+                <input type="radio" name="format" value="either" />
+                <span>Either</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="tf-goals">What Would You Like to Get Out of This Training?</label>
+            <textarea id="tf-goals" name="goals" rows="4"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="tf-anything-else">Anything Else?</label>
+            <textarea id="tf-anything-else" name="anything_else" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg form-submit">Schedule Training</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .training-form-section {
+    background: var(--bg-alt);
+  }
+
+  .training-form-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .training-form-layout {
+      grid-template-columns: 420px 1fr;
+      gap: 64px;
+    }
+  }
+
+  .training-form-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .training-form-copy h2 {
+    font-size: var(--fs-h2);
+    color: var(--fg-1);
+    line-height: var(--lh-snug);
+  }
+
+  .training-form-copy p {
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--fg-2);
+  }
+
+  .training-form-note {
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--ql-violet);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+  }
+
+  .training-form-note p {
+    font-size: var(--fs-small);
+    color: var(--fg-2);
+    line-height: var(--lh-normal);
+    margin: 0;
+  }
+
+  .training-form-card {
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+  }
+
+  .training-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 540px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field label {
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-semi);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--fg-2);
+    font-family: var(--font-body);
+  }
+
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: var(--fs-body);
+    font-family: var(--font-body);
+    color: var(--fg-1);
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235F567A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--fg-3);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--ql-violet);
+    box-shadow: 0 0 0 3px rgba(123, 42, 219, 0.12);
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 96px;
+    line-height: var(--lh-normal);
+  }
+
+  .format-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .format-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 8px 18px;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semi);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+    text-transform: uppercase;
+  }
+
+  .format-option input[type="radio"] {
+    accent-color: var(--ql-violet);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .format-option:has(input:checked) {
+    border-color: var(--ql-violet);
+    color: var(--ql-violet);
+    background: rgba(123, 42, 219, 0.06);
+  }
+
+  .form-submit {
+    align-self: flex-start;
+  }
+</style>

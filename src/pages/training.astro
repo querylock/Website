@@ -7,6 +7,7 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav";
 import FAQ from "../components/FAQ";
 import AvailableTrainings from "../components/AvailableTrainings.astro";
+import TrainingForm from "../components/TrainingForm.astro";
 ---
 
 <Layout
@@ -45,35 +46,7 @@ import AvailableTrainings from "../components/AvailableTrainings.astro";
     </section>
     <HowItWorks />
     <AvailableTrainings />
-
-    <!--<TrainingTeaser />-->
-    <!--<WhyChooseUs />-->
-
-    <!--<section class="training-contact section section-lg" id="contact">-->
-    <!--  <div class="container">-->
-    <!--    <div class="training-contact-inner">-->
-    <!--      <span class="eyebrow">Get in touch</span>-->
-    <!--      <h2>Ready to schedule training for your team?</h2>-->
-    <!--      <p>-->
-    <!--        Tell us about your team, your stack, and what you're trying to improve. We'll put-->
-    <!--        together a session built around your actual environment.-->
-    <!--      </p>-->
-    <!--      <a href="mailto:info@querylock.com" class="btn btn-primary btn-lg">-->
-    <!--        Email us to get started-->
-    <!--        <svg-->
-    <!--          width="14"-->
-    <!--          height="14"-->
-    <!--          viewBox="0 0 24 24"-->
-    <!--          fill="none"-->
-    <!--          stroke="currentColor"-->
-    <!--          stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg-->
-    <!--        >-->
-    <!--      </a>-->
-    <!--    </div>-->
-    <!--  </div>-->
-    <!--</section>-->
-
-    <!--<FAQ client:load />-->
+    <TrainingForm />
   </main>
   <Footer />
 </Layout>
