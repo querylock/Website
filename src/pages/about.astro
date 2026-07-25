@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav';
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav";
 ---
 
 <Layout
@@ -10,41 +10,38 @@ import Nav from '../components/Nav';
 >
   <Nav active="about" client:load />
   <main>
-    <section class="about-hero">
-      <div class="container">
-        <div class="about-hero-inner">
-          <span class="hero-badge"><span class="dot"></span>About QueryLock</span>
-          <h1>Security Through <span class="gradient-text">Education</span></h1>
-          <p class="lead">QueryLock is a cybersecurity education company built on a simple belief: security gets better when people understand it.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="about-story section section-lg">
       <div class="container">
         <div class="about-story-content">
-          <span class="eyebrow">Why we exist</span>
-          <h2>A safer internet starts with educated people, not just better tools.</h2>
+          <span class="hero-badge"><span class="dot"></span>About QueryLock</span>
+          <h1>Security Through <span class="gradient-text">Education</span></h1>
           <div class="about-story-text">
-            <p>After years of seeing the same issues show up in penetration tests, classrooms, and everyday conversations, QueryLock was created to close the knowledge gap.</p>
-            <p>Developers were being asked to fix vulnerabilities they were never taught to prevent. Teams were being told to follow security rules without understanding why they mattered. Beginners were trying to learn cybersecurity, but most explanations started too far ahead.</p>
-            <p>QueryLock helps people understand security before it becomes a problem. We create practical guides for curious learners and live training for teams that want to write secure code from the start, build safer systems, reduce repeat findings, and make better security decisions.</p>
-            <p>Whether you are learning how the internet works for the first time or helping an engineering team improve the way it builds software, the goal is the same: make security finally click.</p>
+            <p>
+              After years of seeing the same issues show up in penetration tests, classrooms, and
+              everyday conversations, QueryLock was created to close the knowledge gap.
+            </p>
+            <p>
+              Developers were being asked to fix vulnerabilities they were never taught to prevent.
+              Teams were being told to follow security rules without understanding why they
+              mattered. Beginners were trying to learn cybersecurity, but most explanations started
+              too far ahead.
+            </p>
+            <p>
+              QueryLock helps people understand security before it becomes a problem. We create
+              practical guides for curious learners and live training for teams that want to write
+              secure code from the start, build safer systems, reduce repeat findings, and make
+              better security decisions.
+            </p>
+            <p>
+              Whether you are learning how the internet works for the first time or helping an
+              engineering team improve the way it builds software, the goal is the same: make
+              security finally click.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="about-cta section section-lg">
-      <div class="container">
-        <div class="about-cta-inner">
-          <span class="eyebrow">Choose your next step</span>
-          <h2>Learn on your own or bring the learning to your team.</h2>
-          <p>Explore a short guide to build your own understanding, or schedule tailored training designed around the systems your team works with every day.</p>
-          <div class="about-cta-buttons">
-            <a href="/learning" class="btn btn-primary btn-lg">Explore the Guides</a>
-            <a href="/training#contact" class="btn btn-outline btn-lg">Schedule Training</a>
-          </div>
+        <div class="about-cta-buttons">
+          <a href="/learning" class="btn btn-primary btn-lg">Explore the Guides</a>
+          <a href="/training#contact" class="btn btn-outline btn-lg">Schedule Training</a>
         </div>
       </div>
     </section>
