@@ -127,8 +127,8 @@
     --info: var(--ql-violet);
 
     /* ── Typography ── */
-    --font-display: "Visby CF", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Visby CF", system-ui, "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Montserrat", system-ui, "Helvetica Neue", Arial, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --fw-regular: 400;
     --fw-medium: 500;
@@ -224,7 +224,7 @@
   }
 
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-body), system-ui;
     font-size: var(--fs-body);
     line-height: var(--lh-normal);
     color: var(--fg-1);
@@ -241,7 +241,7 @@
   h5,
   h6,
   .display {
-    font-family: var(--font-display);
+    font-family: var(--font-display), system-ui;
     font-weight: var(--fw-bold);
     color: var(--fg-1);
     letter-spacing: var(--ls-heading);
@@ -283,7 +283,7 @@
   kbd,
   pre,
   samp {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: 0.92em;
   }
   a {
@@ -371,7 +371,7 @@
   /* ── Shared primitives ── */
 
   .eyebrow {
-    font-family: var(--font-display);
+    font-family: var(--font-display), system-ui;
     font-weight: 700;
     font-size: 11px;
     letter-spacing: 0.16em;
@@ -383,7 +383,7 @@
   }
 
   .btn {
-    font-family: var(--font-display);
+    font-family: var(--font-display), system-ui;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 0.01em;
@@ -454,7 +454,7 @@
   }
 
   .pill {
-    font-family: var(--font-display);
+    font-family: var(--font-display), system-ui;
     font-weight: 700;
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -500,7 +500,7 @@
     );
     border: 1px solid color-mix(in srgb, var(--ql-violet) 22%, transparent);
     border-radius: 999px;
-    font-family: var(--font-display);
+    font-family: var(--font-display), system-ui;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 0.1em;
@@ -513,5 +513,4 @@
     background: var(--ql-magenta);
     border-radius: 999px;
   }
-
 }
