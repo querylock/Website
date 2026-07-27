@@ -52,3 +52,46 @@
     </div>
   </div>
 </section>
+
+<style>
+  .paths-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 880px) { .paths-grid { grid-template-columns: 1fr 1fr; } }
+
+  .path-card {
+    position: relative;
+    background: var(--ql-ink-50);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out);
+  }
+  .path-card:hover { transform: translateY(-3px); box-shadow: 0 24px 56px color-mix(in srgb, var(--ql-deep-purple) 14%, transparent); }
+  .path-card.dark { background: var(--ql-deep-purple); color: var(--ql-white); border-color: transparent; }
+  @media (min-width: 760px) { .path-card { padding: 40px; } }
+
+  .path-eyebrow { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ql-violet); }
+  .path-card.dark .path-eyebrow { color: var(--ql-lavender-200); }
+
+  .path-card h3 { font-weight: 800; font-size: clamp(22px, 2.8vw, 30px); letter-spacing: -0.015em; line-height: 1.15; margin: 0; }
+
+  .path-sub { font-size: 16px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+  .path-card.dark .path-sub { color: rgba(255,255,255,.78); }
+
+  .path-features { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .path-feature { font-size: 14px; color: var(--fg-2); padding-left: 22px; position: relative; line-height: 1.5; }
+  .path-card.dark .path-feature { color: rgba(255,255,255,.75); }
+  .path-feature::before { content: '›'; position: absolute; left: 4px; color: var(--ql-violet); font-weight: bold; }
+  .path-card.dark .path-feature::before { color: var(--ql-magenta); }
+
+  .path-link { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ql-violet); display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
+  .path-card.dark .path-link { color: var(--ql-lavender-200); }
+  .path-card:hover .path-link .arrow { transform: translateX(4px); }
+
+  .path-card-decoration { margin-bottom: 8px; }
+</style>

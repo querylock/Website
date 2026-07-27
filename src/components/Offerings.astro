@@ -54,3 +54,48 @@
     </div>
   </div>
 </section>
+
+<style>
+  .offerings-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 880px) { .offerings-grid { grid-template-columns: 1fr 1fr; } }
+
+  .offering-card {
+    position: relative;
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out), border-color .22s var(--ease-out);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .offering-card:hover { transform: translateY(-3px); box-shadow: 0 24px 56px color-mix(in srgb, var(--ql-deep-purple) 14%, transparent); border-color: var(--ql-lavender-400); }
+  @media (min-width: 760px) { .offering-card { padding: 40px; } }
+
+  .offering-icon { width: 64px; height: 64px; border-radius: 20px; background: linear-gradient(135deg, var(--ql-deep-purple) 0%, var(--ql-violet) 100%); display: flex; align-items: center; justify-content: center; color: var(--ql-white); box-shadow: 0 8px 24px color-mix(in srgb, var(--ql-violet) 28%, transparent); }
+  .offering-card.alt .offering-icon { background: linear-gradient(135deg, var(--ql-violet) 0%, var(--ql-magenta) 100%); box-shadow: 0 8px 24px color-mix(in srgb, var(--ql-magenta) 28%, transparent); }
+
+  .offering-card h3 { font-weight: 800; font-size: 28px; letter-spacing: -0.015em; line-height: 1.12; margin: 0; }
+  .offering-card .desc { font-size: 16px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+
+  .offering-features { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .offering-feature { font-size: 15px; color: var(--fg-2); padding-left: 26px; position: relative; line-height: 1.5; }
+  .offering-feature::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 16px; height: 16px;
+    background: var(--ql-magenta);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 12l4 4 10-10' stroke='black' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 12l4 4 10-10' stroke='black' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;
+  }
+
+  .offering-foot { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--ql-ink-100); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .offering-link { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ql-violet); display: inline-flex; align-items: center; gap: 6px; }
+  .offering-link .arrow { transition: transform .22s var(--ease-out); display: inline-block; }
+  .offering-card:hover .offering-link .arrow { transform: translateX(4px); }
+</style>

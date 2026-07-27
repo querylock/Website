@@ -41,41 +41,90 @@ export default function FAQ() {
           <h2>Cybersecurity should make sense.</h2>
           <p>Here are a few of the questions people ask about QueryLock, our guides, and our training.</p>
         </div>
+
         <div style={{ maxWidth: 820, margin: '0 auto' }}>
-          <div className="faq-tabs" role="tablist" aria-label="FAQ categories">
-            {(Object.keys(groups) as Group[]).map(group => (
-              <button
-                key={group}
-                type="button"
-                role="tab"
-                aria-selected={activeGroup === group}
-                className={`faq-tab ${activeGroup === group ? 'active' : ''}`}
-                onClick={() => selectGroup(group)}
-              >
-                {labels[group]}
-              </button>
-            ))}
-          </div>
-          <div className="faq-list" role="tabpanel" aria-label={`${labels[activeGroup]} questions`}>
-            {items.map((item, i) => (
-              <div key={`${activeGroup}-${i}`} className={`faq-item ${openIdx === i ? 'open' : ''}`}>
+          {/* Tab switcher */}
+          <div
+            className="flex items-center justify-center gap-[6px] w-full max-w-[430px] mx-auto mb-7 p-[6px] border border-[var(--border)] rounded-full bg-[var(--ql-ink-50)] [@media(max-width:480px)]:rounded-[18px]"
+            role="tablist"
+            aria-label="FAQ categories"
+          >
+            {(Object.keys(groups) as Group[]).map(group => {
+              const isActive = activeGroup === group;
+              return (
                 <button
-                  className="faq-question"
-                  onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
-                  aria-expanded={openIdx === i}
+                  key={group}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={[
+                    'flex-1 border-0 rounded-full py-[11px] px-[18px]',
+                    '[font-family:var(--font-display)] text-sm font-bold cursor-pointer',
+                    '[transition:color_var(--dur-base)_var(--ease-out),background_var(--dur-base)_var(--ease-out),box-shadow_var(--dur-base)_var(--ease-out)]',
+                    '[@media(max-width:480px)]:py-[10px] [@media(max-width:480px)]:px-2 [@media(max-width:480px)]:text-[13px]',
+                    isActive
+                      ? 'text-white bg-gradient-to-br from-[var(--ql-deep-purple)] to-[var(--ql-violet)] shadow-[0_8px_20px_color-mix(in_srgb,var(--ql-deep-purple)_18%,transparent)]'
+                      : 'bg-transparent text-[var(--ql-deep-purple)] hover:bg-[color-mix(in_srgb,var(--ql-violet)_8%,transparent)]',
+                  ].join(' ')}
+                  onClick={() => selectGroup(group)}
                 >
-                  <span>{item.q}</span>
-                  <span className="faq-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </span>
+                  {labels[group]}
                 </button>
-                <div className="faq-answer" role="region">
-                  <div className="faq-answer-inner">{item.a}</div>
+              );
+            })}
+          </div>
+
+          {/* FAQ list */}
+          <div className="flex flex-col gap-3" role="tabpanel" aria-label={`${labels[activeGroup]} questions`}>
+            {items.map((item, i) => {
+              const isOpen = openIdx === i;
+              return (
+                <div
+                  key={`${activeGroup}-${i}`}
+                  className={[
+                    'bg-white border rounded-[18px] overflow-hidden',
+                    '[transition:border-color_var(--dur-fast)_var(--ease-out),box-shadow_var(--dur-fast)_var(--ease-out)]',
+                    isOpen
+                      ? 'border-[var(--ql-lavender-400)] shadow-[0_8px_24px_color-mix(in_srgb,var(--ql-deep-purple)_8%,transparent)]'
+                      : 'border-[var(--border)]',
+                  ].join(' ')}
+                >
+                  <button
+                    className="w-full text-left py-[22px] px-6 flex items-center justify-between gap-4 [font-family:var(--font-display)] font-bold text-[17px] text-[var(--ql-deep-purple)] tracking-[-0.005em] bg-transparent cursor-pointer"
+                    onClick={() => setOpenIdx(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>{item.q}</span>
+                    <span
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-none"
+                      style={{
+                        background: isOpen
+                          ? 'linear-gradient(135deg, var(--ql-violet), var(--ql-magenta))'
+                          : 'linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 10%, transparent), color-mix(in srgb, var(--ql-magenta) 10%, transparent))',
+                        color: isOpen ? 'var(--ql-white)' : 'var(--ql-violet)',
+                        transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                        transition: 'transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out)',
+                      }}
+                      aria-hidden="true"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M12 5v14M5 12h14" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <div
+                    className="overflow-hidden"
+                    style={{ maxHeight: isOpen ? 600 : 0, transition: 'max-height 320ms cubic-bezier(0.2, 0.7, 0.2, 1)' }}
+                    role="region"
+                  >
+                    <div className="px-6 pb-[22px] text-[15px] leading-[1.6] text-[var(--fg-2)]">
+                      {item.a}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -45,3 +45,37 @@ const glyphs: Record<string, string> = {
     </div>
   </div>
 </section>
+
+<style>
+  .training-section { background: var(--ql-ink-50); }
+
+  .training-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 880px) { .training-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .training-card {
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+  }
+  .training-card.popular { border-color: var(--ql-magenta); }
+  .training-card.popular::before { content: 'Most flexible'; position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, var(--ql-violet) 0%, var(--ql-magenta) 100%); color: var(--ql-white); font-family: var(--font-display); font-weight: 700; font-size: 10.5px; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .training-card:hover { transform: translateY(-3px); box-shadow: 0 20px 48px color-mix(in srgb, var(--ql-deep-purple) 12%, transparent); }
+
+  .training-card .glyph { width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 12%, transparent) 0%, color-mix(in srgb, var(--ql-magenta) 12%, transparent) 100%); border: 1px solid color-mix(in srgb, var(--ql-violet) 18%, transparent); display: flex; align-items: center; justify-content: center; color: var(--ql-violet); margin-bottom: 4px; }
+  .training-card h3 { font-weight: 800; font-size: 22px; letter-spacing: -0.01em; line-height: 1.15; margin: 0; }
+  .training-card .desc { font-size: 14px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+
+  .training-card .price { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--ql-ink-100); }
+  .training-card .price-from { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 4px; }
+  .training-card .price-value { font-family: var(--font-display); font-weight: 800; font-size: 28px; letter-spacing: -0.02em; color: var(--ql-deep-purple); }
+  .training-card .price-unit { font-weight: 500; font-size: 14px; color: var(--fg-3); }
+
+  .training-cta-row { display: flex; justify-content: center; margin-top: 40px; }
+</style>

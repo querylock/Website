@@ -3,7 +3,7 @@ const posts = [
   {
     category: 'AI Security',
     readTime: '8 min read',
-    title: 'Prompt injection isn’t going away. Here’s the defense playbook.',
+    title: 'Prompt injection isn't going away. Here's the defense playbook.',
     excerpt: 'Indirect prompt injection through retrieved content is now the more common attack vector. A layered approach beats any single mitigation.',
     cover: 'purple',
     glyph: 'ai',
@@ -19,8 +19,8 @@ const posts = [
   {
     category: 'Cloud Security',
     readTime: '7 min read',
-    title: 'A practitioner’s read of the 2026 AWS attack surface.',
-    excerpt: 'What’s changed since last year: IMDSv2 default behavior, the new IAM Identity Center patterns, and the one S3 setting most teams still miss.',
+    title: 'A practitioner's read of the 2026 AWS attack surface.',
+    excerpt: 'What's changed since last year: IMDSv2 default behavior, the new IAM Identity Center patterns, and the one S3 setting most teams still miss.',
     cover: 'magenta',
     glyph: 'cloud',
   },
@@ -76,3 +76,42 @@ const glyphs: Record<string, string> = {
     </div>
   </div>
 </section>
+
+<style>
+  .blog-section { background: var(--ql-white); }
+
+  .blog-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 760px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1080px) { .blog-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .blog-card {
+    background: var(--ql-white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out), border-color .22s var(--ease-out);
+  }
+  .blog-card:hover { transform: translateY(-3px); box-shadow: 0 24px 56px color-mix(in srgb, var(--ql-deep-purple) 14%, transparent); border-color: var(--ql-lavender-400); }
+
+  .blog-cover { aspect-ratio: 16/10; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .blog-cover .pattern { position: absolute; inset: 0; opacity: 0.18; }
+  .blog-cover .glyph { position: relative; color: var(--ql-white); opacity: 0.9; }
+  .blog-cover.purple { background: linear-gradient(135deg, var(--ql-deep-purple) 0%, var(--ql-violet) 100%); }
+  .blog-cover.violet { background: linear-gradient(135deg, var(--ql-purple-600) 0%, var(--ql-magenta) 100%); }
+  .blog-cover.magenta { background: linear-gradient(135deg, var(--ql-violet) 0%, var(--ql-magenta) 100%); }
+
+  .blog-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .blog-meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 600; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .blog-category { color: var(--ql-violet); }
+  .blog-readtime { color: var(--fg-3); }
+  .blog-card h3 { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
+  .blog-card p { font-size: 14px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+
+  .blog-readmore { margin-top: auto; padding-top: 8px; font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--ql-violet); display: inline-flex; align-items: center; gap: 6px; }
+  .blog-readmore .arrow { transition: transform .22s var(--ease-out); display: inline-block; }
+  .blog-card:hover .blog-readmore .arrow { transform: translateX(4px); }
+</style>

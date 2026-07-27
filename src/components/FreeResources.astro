@@ -46,3 +46,38 @@ const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" s
     </div>
   </div>
 </section>
+
+<style>
+  .free-resources {
+    background: var(--ql-deep-purple);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-resources .pattern { position: absolute; inset: 0; pointer-events: none; opacity: 0.15; }
+
+  .free-grid { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin-top: 40px; }
+
+  .free-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: background .2s var(--ease-out), border-color .2s var(--ease-out);
+  }
+  .free-item:hover { background: rgba(255,255,255,.10); border-color: rgba(203,68,239,.4); }
+
+  .free-item-glyph { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 30%, transparent) 0%, color-mix(in srgb, var(--ql-magenta) 30%, transparent) 100%); border: 1px solid rgba(203,68,239,.25); display: flex; align-items: center; justify-content: center; color: var(--ql-lavender-200); }
+
+  .free-item-text { flex: 1; min-width: 0; }
+  .free-item-label { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ql-lavender-200); margin-bottom: 4px; }
+  .free-item-title { font-weight: 600; font-size: 15px; color: rgba(255,255,255,.92); line-height: 1.35; }
+
+  .free-item-arrow { flex-shrink: 0; color: rgba(255,255,255,.4); transition: transform .22s var(--ease-out), color .2s var(--ease-out); }
+  .free-item:hover .free-item-arrow { transform: translateX(4px); color: var(--ql-lavender-200); }
+</style>
