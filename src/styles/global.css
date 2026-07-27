@@ -492,12 +492,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--ql-violet) 10%, transparent) 0%,
-      color-mix(in srgb, var(--ql-magenta) 10%, transparent) 100%
-    );
+    padding: 12px 16px;
+    background: var(--ql-white);
     border: 1px solid color-mix(in srgb, var(--ql-violet) 22%, transparent);
     border-radius: 999px;
     font-family: var(--font-display), system-ui;
