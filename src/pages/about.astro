@@ -9,7 +9,7 @@ import Nav from "../components/Nav";
   description="QueryLock helps people understand cybersecurity before it becomes a problem through practical guides and tailored team training."
 >
   <Nav active="about" client:load />
-  <main>
+  <main class="">
     <section class="about-story section section-lg">
       <div class="container">
         <div class="about-story-content mb-8">
@@ -55,7 +55,6 @@ import Nav from "../components/Nav";
   }
 
   .about-story-content {
-    max-width: 760px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -74,6 +73,9 @@ import Nav from "../components/Nav";
     display: flex;
     flex-direction: column;
     gap: 18px;
+    max-width: 760px;
+    border-left: 3px solid var(--ql-violet);
+    padding-left: 24px;
   }
   .about-story-text p {
     font-size: clamp(16px, 1.5vw, 18px);
