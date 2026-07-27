@@ -85,11 +85,18 @@ const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" s
   }
 
   .free-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
     max-width: 760px;
-    margin-top: 40px;
+    margin: 40px auto 0;
+  }
+
+  @media (min-width: 768px) {
+    .free-grid {
+      grid-template-columns: 1fr 1fr;
+      max-width: 1000px;
+    }
   }
 
   .free-item {
