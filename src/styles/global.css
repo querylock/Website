@@ -3,35 +3,35 @@
 
 @font-face {
   font-family: "Visby CF";
-  src: url("/assets/fonts/VisbyCF-Regular.otf") format("opentype");
+  src: url("/public/assets/fonts/VisbyCF-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Visby CF";
-  src: url("/assets/fonts/VisbyCF-Medium.otf") format("opentype");
+  src: url("/public/assets/fonts/VisbyCF-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Visby CF";
-  src: url("/assets/fonts/VisbyCF-DemiBold.otf") format("opentype");
+  src: url("/public/assets/fonts/VisbyCF-DemiBold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Visby CF";
-  src: url("/assets/fonts/VisbyCF-Bold.otf") format("opentype");
+  src: url("/public/assets/fonts/VisbyCF-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Visby CF";
-  src: url("/assets/fonts/VisbyCF-ExtraBold.otf") format("opentype");
+  src: url("/public/assets/fonts/VisbyCF-ExtraBold.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
