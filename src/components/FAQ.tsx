@@ -70,10 +70,12 @@ export default function FAQ() {
   return (
     <section className="section section-lg" id="faq">
       <div className="container">
-        <div className="section-head-c">
+        <div className="mx-auto mb-14 flex max-w-[760px] flex-col items-center gap-4 text-center">
           <span className="eyebrow">Frequently Asked Questions</span>
-          <h2>Cybersecurity should make sense.</h2>
-          <p>
+          <h2 className="font-extrabold text-[clamp(32px,4.6vw,52px)] leading-[1.05] tracking-[-0.02em] text-balance">
+            Cybersecurity should make sense.
+          </h2>
+          <p className="max-w-[60ch] text-[17px] leading-[1.55] text-[var(--fg-2)]">
             Here are a few of the questions people ask about QueryLock, our guides, and our
             training.
           </p>

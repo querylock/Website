@@ -132,12 +132,12 @@ export default function GuideSeries() {
   return (
     <section className="section section-lg" id="guides">
       <div className="container">
-        <div className="section-head-c">
+        <div className="mx-auto mb-14 flex max-w-[760px] flex-col items-center gap-4 text-center">
           <span className="eyebrow">The guide catalog</span>
-          <h2>
+          <h2 className="font-extrabold text-[clamp(32px,4.6vw,52px)] leading-[1.05] tracking-[-0.02em] text-balance">
             Eight series. <span className="gradient-text">Fifty-eight</span> guides.
           </h2>
-          <p>
+          <p className="max-w-[60ch] text-[17px] leading-[1.55] text-[var(--fg-2)]">
             None of them &ldquo;leveraging cutting-edge.&rdquo; Bundles save 20&ndash;30% over
             per-guide pricing. Five starters are free.
           </p>
