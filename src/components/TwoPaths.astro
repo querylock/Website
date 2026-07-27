@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <section class="paths section">
@@ -7,7 +8,10 @@
       <span class="eyebrow">Pick your path</span>
       <div class="section-head-row">
         <h2>Two ways in. Both start with reading something useful.</h2>
-        <p>Most readers find us through one guide on LinkedIn. Teams find us when they get tired of the same pentest finding for the third year running.</p>
+        <p>
+          Most readers find us through one guide on LinkedIn. Teams find us when they get tired of
+          the same pentest finding for the third year running.
+        </p>
       </div>
     </div>
 
@@ -16,17 +20,24 @@
         <span class="path-eyebrow">For individuals</span>
         <div class="path-card-decoration" aria-hidden="true">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <path d="M10 40a30 30 0 0130-30" stroke="#CB44EF" stroke-width="6"/>
-            <rect x="42" y="42" width="14" height="14" fill="#7B2ADB"/>
-            <rect x="58" y="58" width="14" height="14" fill="#CB44EF" opacity="0.6"/>
+            <path d="M10 40a30 30 0 0130-30" stroke="#CB44EF" stroke-width="6"></path>
+            <rect x="42" y="42" width="14" height="14" fill="#7B2ADB"></rect>
+            <rect x="58" y="58" width="14" height="14" fill="#CB44EF" opacity="0.6"></rect>
           </svg>
         </div>
         <h3>I want to learn this myself.</h3>
-        <p class="path-sub">Self-paced, plain-English guides for developers, security folks, and anyone who&rsquo;d rather read a 30-minute brief than sit through a six-hour course.</p>
+        <p class="path-sub">
+          Self-paced, plain-English guides for developers, security folks, and anyone who&rsquo;d
+          rather read a 30-minute brief than sit through a six-hour course.
+        </p>
         <ul class="path-features">
-          <li class="path-feature">58 guides across 8 series — $5 or $15 each, bundles for the full series</li>
+          <li class="path-feature">
+            58 guides across 8 series — $5 or $15 each, bundles for the full series
+          </li>
           <li class="path-feature">5 free starter checklists, no credit card</li>
-          <li class="path-feature">Built for LinkedIn-on-mobile reading, deep enough to act on Monday</li>
+          <li class="path-feature">
+            Built for LinkedIn-on-mobile reading, deep enough to act on Monday
+          </li>
         </ul>
         <span class="path-link">Browse the catalog <span class="arrow">→</span></span>
       </a>
@@ -35,13 +46,16 @@
         <span class="path-eyebrow">For organizations</span>
         <div class="path-card-decoration" aria-hidden="true">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <path d="M10 40a30 30 0 0130-30" stroke="#CB44EF" stroke-width="6"/>
-            <rect x="42" y="42" width="14" height="14" fill="#fff" opacity="0.6"/>
-            <rect x="58" y="58" width="14" height="14" fill="#CB44EF" opacity="0.8"/>
+            <path d="M10 40a30 30 0 0130-30" stroke="#CB44EF" stroke-width="6"></path>
+            <rect x="42" y="42" width="14" height="14" fill="#fff" opacity="0.6"></rect>
+            <rect x="58" y="58" width="14" height="14" fill="#CB44EF" opacity="0.8"></rect>
           </svg>
         </div>
         <h3>My team keeps shipping the same bugs.</h3>
-        <p class="path-sub">Practitioner-led training for engineering, security, and leadership. Live, virtual or onsite, scoped to your stack and your last pentest report.</p>
+        <p class="path-sub">
+          Practitioner-led training for engineering, security, and leadership. Live, virtual or
+          onsite, scoped to your stack and your last pentest report.
+        </p>
         <ul class="path-features">
           <li class="path-feature">Open-enrollment workshops from $79 per seat</li>
           <li class="path-feature">Private team sessions from $1,500 flat</li>
@@ -54,8 +68,16 @@
 </section>
 
 <style>
-  .paths-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  @media (min-width: 880px) { .paths-grid { grid-template-columns: 1fr 1fr; } }
+  .paths-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 880px) {
+    .paths-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
   .path-card {
     position: relative;
@@ -69,29 +91,102 @@
     text-decoration: none;
     color: inherit;
     overflow: hidden;
-    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out);
+    transition:
+      transform 0.22s var(--ease-out),
+      box-shadow 0.22s var(--ease-out);
   }
-  .path-card:hover { transform: translateY(-3px); box-shadow: 0 24px 56px color-mix(in srgb, var(--ql-deep-purple) 14%, transparent); }
-  .path-card.dark { background: var(--ql-deep-purple); color: var(--ql-white); border-color: transparent; }
-  @media (min-width: 760px) { .path-card { padding: 40px; } }
+  .path-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 56px color-mix(in srgb, var(--ql-deep-purple) 14%, transparent);
+  }
+  .path-card.dark {
+    background: var(--ql-deep-purple);
+    color: var(--ql-white);
+    border-color: transparent;
+  }
+  @media (min-width: 760px) {
+    .path-card {
+      padding: 40px;
+    }
+  }
 
-  .path-eyebrow { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ql-violet); }
-  .path-card.dark .path-eyebrow { color: var(--ql-lavender-200); }
+  .path-eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ql-violet);
+  }
+  .path-card.dark .path-eyebrow {
+    color: var(--ql-lavender-200);
+  }
 
-  .path-card h3 { font-weight: 800; font-size: clamp(22px, 2.8vw, 30px); letter-spacing: -0.015em; line-height: 1.15; margin: 0; }
+  .path-card h3 {
+    font-weight: 800;
+    font-size: clamp(22px, 2.8vw, 30px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0;
+  }
 
-  .path-sub { font-size: 16px; line-height: 1.55; color: var(--fg-2); margin: 0; }
-  .path-card.dark .path-sub { color: rgba(255,255,255,.78); }
+  .path-sub {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    margin: 0;
+  }
+  .path-card.dark .path-sub {
+    color: rgba(255, 255, 255, 0.78);
+  }
 
-  .path-features { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 10px; }
-  .path-feature { font-size: 14px; color: var(--fg-2); padding-left: 22px; position: relative; line-height: 1.5; }
-  .path-card.dark .path-feature { color: rgba(255,255,255,.75); }
-  .path-feature::before { content: '›'; position: absolute; left: 4px; color: var(--ql-violet); font-weight: bold; }
-  .path-card.dark .path-feature::before { color: var(--ql-magenta); }
+  .path-features {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .path-feature {
+    font-size: 14px;
+    color: var(--fg-2);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .path-card.dark .path-feature {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .path-feature::before {
+    content: "›";
+    position: absolute;
+    left: 4px;
+    color: var(--ql-violet);
+    font-weight: bold;
+  }
+  .path-card.dark .path-feature::before {
+    color: var(--ql-magenta);
+  }
 
-  .path-link { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ql-violet); display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
-  .path-card.dark .path-link { color: var(--ql-lavender-200); }
-  .path-card:hover .path-link .arrow { transform: translateX(4px); }
+  .path-link {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ql-violet);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+  }
+  .path-card.dark .path-link {
+    color: var(--ql-lavender-200);
+  }
+  .path-card:hover .path-link .arrow {
+    transform: translateX(4px);
+  }
 
-  .path-card-decoration { margin-bottom: 8px; }
+  .path-card-decoration {
+    margin-bottom: 8px;
+  }
 </style>

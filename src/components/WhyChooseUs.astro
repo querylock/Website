@@ -1,23 +1,23 @@
 ---
 const items = [
   {
-    title: 'Start with the foundation',
-    desc: 'We do not assume you already know the terminology. Every guide and workshop begins where the learner actually is.',
+    title: "Start with the foundation",
+    desc: "We do not assume you already know the terminology. Every guide and workshop begins where the learner actually is.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>`,
   },
   {
-    title: 'Teach for understanding',
-    desc: 'Security should not be memorized just to check a box. We explain how the system works, why the risk exists, and what safer choices look like.',
+    title: "Teach for understanding",
+    desc: "Security should not be memorized just to check a box. We explain how the system works, why the risk exists, and what safer choices look like.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>`,
   },
   {
-    title: 'Tailored to real systems',
-    desc: 'Training reflects your stack, architecture, experience level, and goals. We focus on the risks that matter to the way your team actually builds.',
+    title: "Tailored to real systems",
+    desc: "Training reflects your stack, architecture, experience level, and goals. We focus on the risks that matter to the way your team actually builds.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
   },
   {
-    title: 'Built for lasting change',
-    desc: 'The goal is not another presentation that gets forgotten. It is stronger habits, earlier decisions, and fewer repeat security issues over time.',
+    title: "Built for lasting change",
+    desc: "The goal is not another presentation that gets forgotten. It is stronger habits, earlier decisions, and fewer repeat security issues over time.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>`,
   },
 ];
@@ -28,26 +28,45 @@ const items = [
     <div class="section-head-c">
       <span class="eyebrow">Why QueryLock</span>
       <h2>Understanding changes how people approach security.</h2>
-      <p>Developers who understand why a vulnerability exists are better prepared to prevent it. People who understand why safeguards matter are more likely to use them.</p>
+      <p>
+        Developers who understand why a vulnerability exists are better prepared to prevent it.
+        People who understand why safeguards matter are more likely to use them.
+      </p>
     </div>
     <div class="why-grid">
-      {items.map(item => (
-        <article class="why-card">
-          <div class="why-icon" set:html={item.icon} />
-          <h3>{item.title}</h3>
-          <p class="desc">{item.desc}</p>
-        </article>
-      ))}
+      {
+        items.map((item) => (
+          <article class="why-card">
+            <div class="why-icon" set:html={item.icon} />
+            <h3>{item.title}</h3>
+            <p class="desc">{item.desc}</p>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  .why-section { background: var(--ql-ink-50); }
+  .why-section {
+    background: var(--ql-ink-50);
+  }
 
-  .why-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-  @media (min-width: 720px) { .why-grid { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 1100px) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 720px) {
+    .why-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1100px) {
+    .why-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
   .why-card {
     background: var(--ql-white);
@@ -57,12 +76,42 @@ const items = [
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transition: transform .22s var(--ease-out), box-shadow .22s var(--ease-out);
+    transition:
+      transform 0.22s var(--ease-out),
+      box-shadow 0.22s var(--ease-out);
   }
-  .why-card:hover { transform: translateY(-3px); box-shadow: 0 20px 48px color-mix(in srgb, var(--ql-deep-purple) 12%, transparent); }
+  .why-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px color-mix(in srgb, var(--ql-deep-purple) 12%, transparent);
+  }
 
-  .why-icon { width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 12%, transparent) 0%, color-mix(in srgb, var(--ql-magenta) 12%, transparent) 100%); border: 1px solid color-mix(in srgb, var(--ql-violet) 18%, transparent); display: flex; align-items: center; justify-content: center; color: var(--ql-violet); }
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ql-violet) 12%, transparent) 0%,
+      color-mix(in srgb, var(--ql-magenta) 12%, transparent) 100%
+    );
+    border: 1px solid color-mix(in srgb, var(--ql-violet) 18%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ql-violet);
+  }
 
-  .why-card h3 { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
-  .why-card .desc { font-size: 14px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+  .why-card h3 {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .why-card .desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    margin: 0;
+  }
 </style>

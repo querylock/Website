@@ -55,16 +55,47 @@ import FinalCTA from "../components/FinalCTA.astro";
 
 <style>
   .page-hero {
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--ql-violet) 10%, transparent) 0%, transparent 70%), var(--ql-white);
+    background:
+      radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        color-mix(in srgb, var(--ql-violet) 10%, transparent) 0%,
+        transparent 70%
+      ),
+      var(--ql-white);
     padding: 64px 0;
   }
 
-  .page-hero-inner { max-width: 720px; display: flex; flex-direction: column; gap: 20px; }
-  .page-hero-inner h1 { font-weight: 800; font-size: clamp(36px, 6vw, 72px); letter-spacing: -0.025em; line-height: 1.04; margin: 0; }
+  .page-hero-inner {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .page-hero-inner h1 {
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 72px);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin: 0;
+  }
 
-  .page-hero-sub { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.65; color: var(--fg-2); margin: 0; }
+  .page-hero-sub {
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.65;
+    color: var(--fg-2);
+    margin: 0;
+  }
 
-  .page-hero-note { font-size: 14px; color: var(--fg-3); margin: 0; }
-  .page-hero-note a { color: var(--ql-violet); text-decoration: none; }
-  .page-hero-note a:hover { text-decoration: underline; }
+  .page-hero-note {
+    font-size: 14px;
+    color: var(--fg-3);
+    margin: 0;
+  }
+  .page-hero-note a {
+    color: var(--ql-violet);
+    text-decoration: none;
+  }
+  .page-hero-note a:hover {
+    text-decoration: underline;
+  }
 </style>
