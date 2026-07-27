@@ -82,7 +82,7 @@ const trainings = [
     <div class="available-trainings-grid">
       {
         trainings.map((t) => (
-          <article class="available-training-card">
+          <article class="available-training-card" id={t.id}>
             <div class="available-training-icon" set:html={t.icon} />
             <div class="available-training-body">
               <h3>{t.title}</h3>
@@ -158,6 +158,7 @@ const trainings = [
   }
 
   .available-training-card {
+    scroll-margin-top: 100px;
     background: #fff;
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
