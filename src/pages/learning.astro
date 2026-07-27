@@ -14,7 +14,7 @@ import FinalCTA from "../components/FinalCTA.astro";
 >
   <Nav active="learning" client:load />
   <main>
-    <section class="page-hero section-lg" id="guides" style="min-height: auto; padding: 64px 0;">
+    <section class="page-hero section-lg" id="guides">
       <div class="container">
         <div class="page-hero-inner">
           <span class="hero-badge"><span class="dot"></span>The guide catalog</span>
@@ -24,11 +24,10 @@ import FinalCTA from "../components/FinalCTA.astro";
             prerequisite is curiosity &mdash; no technical background needed.
           </p>
           <a
-            href="https://gumroad.com"
+            href="https://querylock.gumroad.com/"
             target="_blank"
             rel="noopener"
-            class="btn btn-primary btn-lg"
-            style="margin-top:32px"
+            class="btn btn-primary btn-lg mb-5"
           >
             View guides on Gumroad
             <svg
@@ -40,7 +39,7 @@ import FinalCTA from "../components/FinalCTA.astro";
               stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"></path></svg
             >
           </a>
-          <p>
+          <p class="page-hero-note">
             Don't see the guide you want? Request one at <a href="mailto:info@querylock.com"
               >info@querylock.com</a
             >
@@ -53,3 +52,54 @@ import FinalCTA from "../components/FinalCTA.astro";
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        color-mix(in srgb, var(--ql-violet) 10%, transparent) 0%,
+        transparent 70%
+      ),
+      var(--ql-white);
+    padding: 64px 0;
+  }
+
+  .page-hero-inner {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .page-hero-inner h1 {
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 72px);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin: 0;
+  }
+
+  .page-hero-sub {
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.65;
+    color: var(--fg-2);
+    margin: 0;
+  }
+
+  .page-hero-note {
+    font-size: 14px;
+    color: var(--fg-3);
+    margin: 0;
+  }
+  .page-hero-note a {
+    color: var(--ql-violet);
+    text-decoration: none;
+  }
+  .page-hero-note a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,13 +1,13 @@
 ---
-import { freeResources } from '../data/content';
+import { freeResources } from "../data/content";
 
 const patternCells: { x: number; y: number; sz: number; color: string }[] = [];
 for (let i = 0; i < 100; i++) {
   patternCells.push({
     x: (i * 71 + 23) % 1400,
     y: (i * 109 + 17) % 720,
-    sz: i % 8 === 0 ? 12 : (i % 4 === 0 ? 7 : 4),
-    color: i % 7 === 0 ? '#CB44EF' : '#EAB4F8',
+    sz: i % 8 === 0 ? 12 : i % 4 === 0 ? 7 : 4,
+    color: i % 7 === 0 ? "#CB44EF" : "#EAB4F8",
   });
 }
 
@@ -18,31 +18,152 @@ const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" s
 <section class="free-resources section section-lg" id="free">
   <div class="pattern" aria-hidden="true">
     <svg width="100%" height="100%" viewBox="0 0 1400 720" preserveAspectRatio="xMidYMid slice">
-      {patternCells.map((c, i) => (
-        <rect key={i} x={c.x} y={c.y} width={c.sz} height={c.sz} fill={c.color} />
-      ))}
+      {
+        patternCells.map((c, i) => (
+          <rect key={i} x={c.x} y={c.y} width={c.sz} height={c.sz} fill={c.color} />
+        ))
+      }
     </svg>
   </div>
   <div class="container" style="position:relative">
-    <div class="section-head-c" style="max-width:760px">
+    <div class="mx-auto mb-14 flex max-w-[760px] flex-col items-center gap-4 text-center">
       <span class="eyebrow" style="color:var(--ql-lavender-200)">Free starter resources</span>
-      <h2 style="color:#fff">Read first. Decide later. <span style="background:linear-gradient(135deg,#EAB4F8,#CB44EF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent">No demos.</span></h2>
-      <p style="color:rgba(255,255,255,.78)">Five guides and checklists are free with an email. We send roughly one short update a month &mdash; actual security signal, not lead nurturing.</p>
+      <h2 class="font-extrabold text-[clamp(32px,4.6vw,52px)] leading-[1.05] tracking-[-0.02em] text-balance" style="color:#fff">
+        Read first. Decide later. <span
+          style="background:linear-gradient(135deg,#EAB4F8,#CB44EF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent"
+          >No demos.</span
+        >
+      </h2>
+      <p class="max-w-[60ch] text-[17px] leading-[1.55]" style="color:rgba(255,255,255,.78)">
+        Five guides and checklists are free with an email. We send roughly one short update a month
+        &mdash; actual security signal, not lead nurturing.
+      </p>
     </div>
 
     <div class="free-grid">
-      {freeResources.map(item => (
-        <a href="#" class="free-item">
-          <div class="free-item-glyph" set:html={item.kind === 'Checklist' ? checklistIcon : guideIcon} />
-          <div class="free-item-text">
-            <div class="free-item-label">{item.kind} · Free</div>
-            <div class="free-item-title">{item.title}</div>
-          </div>
-          <svg class="free-item-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
-        </a>
-      ))}
+      {
+        freeResources.map((item) => (
+          <a href="#" class="free-item">
+            <div
+              class="free-item-glyph"
+              set:html={item.kind === "Checklist" ? checklistIcon : guideIcon}
+            />
+            <div class="free-item-text">
+              <div class="free-item-label">{item.kind} · Free</div>
+              <div class="free-item-title">{item.title}</div>
+            </div>
+            <svg
+              class="free-item-arrow"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<style>
+  .free-resources {
+    background: var(--ql-deep-purple);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-resources .pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+
+  .free-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 760px;
+    margin: 40px auto 0;
+  }
+
+  @media (min-width: 768px) {
+    .free-grid {
+      grid-template-columns: 1fr 1fr;
+      max-width: 1000px;
+    }
+  }
+
+  .free-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      background 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out);
+  }
+  .free-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(203, 68, 239, 0.4);
+  }
+
+  .free-item-glyph {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ql-violet) 30%, transparent) 0%,
+      color-mix(in srgb, var(--ql-magenta) 30%, transparent) 100%
+    );
+    border: 1px solid rgba(203, 68, 239, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ql-lavender-200);
+  }
+
+  .free-item-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .free-item-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ql-lavender-200);
+    margin-bottom: 4px;
+  }
+  .free-item-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.35;
+  }
+
+  .free-item-arrow {
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.4);
+    transition:
+      transform 0.22s var(--ease-out),
+      color 0.2s var(--ease-out);
+  }
+  .free-item:hover .free-item-arrow {
+    transform: translateX(4px);
+    color: var(--ql-lavender-200);
+  }
+</style>

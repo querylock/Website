@@ -9,10 +9,10 @@ import Nav from "../components/Nav";
   description="QueryLock helps people understand cybersecurity before it becomes a problem through practical guides and tailored team training."
 >
   <Nav active="about" client:load />
-  <main>
+  <main class="">
     <section class="about-story section section-lg">
       <div class="container">
-        <div class="about-story-content">
+        <div class="about-story-content mb-8">
           <span class="hero-badge"><span class="dot"></span>About QueryLock</span>
           <h1>Security Through <span class="gradient-text">Education</span></h1>
           <div class="about-story-text">
@@ -38,13 +38,60 @@ import Nav from "../components/Nav";
               security finally click.
             </p>
           </div>
-        </div>
-        <div class="about-cta-buttons">
-          <a href="/learning" class="btn btn-primary btn-lg">Explore the Guides</a>
-          <a href="/training#contact" class="btn btn-outline btn-lg">Schedule Training</a>
+          <div class="about-cta-buttons">
+            <a href="https://querylock.gumroad.com/" target="_blank" class="btn btn-primary btn-lg">Explore the Guides</a>
+            <a href="https://querylock.gumroad.com/" target="_blank" class="btn btn-outline btn-lg"
+              >Schedule Training</a
+            >
+          </div>
         </div>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .about-story {
+    background: var(--ql-white);
+  }
+
+  .about-story-content {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .about-story-content h1 {
+    font-weight: 800;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin: 0 0 16px;
+  }
+
+  .about-story-text {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-left: 3px solid var(--ql-violet);
+    padding-left: 24px;
+  }
+  .about-story-text p {
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.7;
+    color: var(--fg-2);
+    margin: 0;
+  }
+
+  .about-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+</style>

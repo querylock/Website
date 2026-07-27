@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer.astro";
+import FAQ from "../components/FAQ";
+---
+
+<Layout
+  title="FAQ — QueryLock"
+  description="Answers to common questions about QueryLock, our cybersecurity guides, and team training."
+>
+  <Nav client:load />
+  <main>
+    <FAQ client:load />
+  </main>
+  <Footer />
+</Layout>

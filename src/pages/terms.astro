@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Terms of Use — QueryLock"
+  description="QueryLock's terms of use govern access to our website, guides, and training services."
+>
+  <Nav client:load />
+  <main>
+    <section class="policy-hero section section-lg">
+      <div class="container">
+        <div class="policy-content">
+          <span class="eyebrow">Legal</span>
+          <h1>Terms of Use</h1>
+          <p class="effective">Effective date: January 1, 2026</p>
+
+          <div class="policy-body">
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+              By accessing or using the QueryLock website and any content, guides, or training
+              services we provide, you agree to be bound by these terms. If you do not agree,
+              please do not use our services.
+            </p>
+
+            <h2>2. Use of Content</h2>
+            <p>
+              All content on this site, including guides, training materials, and written
+              resources, is owned by QueryLock and protected by copyright. You may access content
+              for personal, non-commercial use only. You may not reproduce, redistribute, or
+              resell any content without our written permission.
+            </p>
+
+            <h2>3. Guides and Digital Products</h2>
+            <p>
+              Paid guides are licensed to you for personal use. You may not share, resell, or
+              distribute purchased guides. Access to free resources is provided as-is and may
+              change at any time.
+            </p>
+
+            <h2>4. Training Services</h2>
+            <p>
+              Training engagements are subject to a separate agreement confirmed at the time of
+              booking. Scope, scheduling, and terms will be outlined in that agreement.
+            </p>
+
+            <h2>5. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Use our site or content for any unlawful purpose</li>
+              <li>Attempt to gain unauthorized access to any system or account</li>
+              <li>Interfere with the operation of our website</li>
+              <li>Misrepresent your identity or affiliation with QueryLock</li>
+            </ul>
+
+            <h2>6. Disclaimers</h2>
+            <p>
+              QueryLock content is provided for educational purposes only. It does not constitute
+              legal, compliance, or professional security advice. We make no guarantees about the
+              completeness or accuracy of any content and are not liable for decisions made based
+              on it.
+            </p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>
+              To the maximum extent permitted by law, QueryLock is not liable for any indirect,
+              incidental, or consequential damages arising from your use of our site or services.
+            </p>
+
+            <h2>8. Changes to These Terms</h2>
+            <p>
+              We may update these terms at any time. Continued use of our site after changes
+              constitutes acceptance of the updated terms. We will update the effective date
+              above when changes are made.
+            </p>
+
+            <h2>9. Contact</h2>
+            <p>
+              Questions about these terms? Reach us at <a href="mailto:info@querylock.com"
+                >info@querylock.com</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .policy-hero {
+    background: var(--ql-white);
+  }
+
+  .policy-content {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .policy-content h1 {
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: -0.025em;
+    line-height: 1.06;
+    margin: 0;
+  }
+
+  .effective {
+    font-size: 14px;
+    color: var(--fg-3);
+    margin: 0 0 16px;
+  }
+
+  .policy-body {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .policy-body h2 {
+    font-size: var(--fs-h4);
+    font-weight: 700;
+    color: var(--fg-1);
+    margin: 0 0 8px;
+  }
+
+  .policy-body p,
+  .policy-body ul {
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.7;
+    color: var(--fg-2);
+    margin: 0;
+  }
+
+  .policy-body ul {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .policy-body a {
+    color: var(--ql-violet);
+    text-decoration: none;
+  }
+  .policy-body a:hover {
+    text-decoration: underline;
+  }
+</style>

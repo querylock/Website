@@ -1,30 +1,64 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-type Group = 'general' | 'training' | 'guides';
+type Group = "general" | "training" | "guides";
 
 const groups: Record<Group, { q: string; a: string }[]> = {
   general: [
-    { q: 'What is QueryLock?', a: 'QueryLock is a cybersecurity education company built on one idea: a safer internet starts with educated people, not just better tools. We close the gap between security knowledge and everyone who needs it.' },
-    { q: 'What does QueryLock do?', a: 'QueryLock teaches cybersecurity through practical guides and hands-on training. We help curious learners understand security concepts, and we help teams write secure code, catch risks sooner, and make better security decisions.' },
-    { q: 'Who is QueryLock for?', a: 'QueryLock is for anyone who wants cybersecurity to make more sense. That includes beginners, developers, security teams, product teams, and companies that want to lower risk before issues reach production.' },
-    { q: 'What makes QueryLock different?', a: "QueryLock is education first. We do not assume you already have background knowledge, and we do not teach just to check a box. Our guides start with the foundation, and our training is tailored to your team's real stack, systems, and goals." },
+    {
+      q: "What is QueryLock?",
+      a: "QueryLock is a cybersecurity education company built on one idea: a safer internet starts with educated people, not just better tools. We close the gap between security knowledge and everyone who needs it.",
+    },
+    {
+      q: "What does QueryLock do?",
+      a: "QueryLock teaches cybersecurity through practical guides and hands-on training. We help curious learners understand security concepts, and we help teams write secure code, catch risks sooner, and make better security decisions.",
+    },
+    {
+      q: "Who is QueryLock for?",
+      a: "QueryLock is for anyone who wants cybersecurity to make more sense. That includes beginners, developers, security teams, product teams, and companies that want to lower risk before issues reach production.",
+    },
+    {
+      q: "What makes QueryLock different?",
+      a: "QueryLock is education first. We do not assume you already have background knowledge, and we do not teach just to check a box. Our guides start with the foundation, and our training is tailored to your team's real stack, systems, and goals.",
+    },
   ],
   training: [
-    { q: 'Is QueryLock training customized?', a: 'Yes. You can share as much context as you are comfortable with, including your tech stack, architecture, application type, team experience level, common concerns, or a redacted pentest report. We use that context to build training that fits your environment.' },
-    { q: 'What kind of training do you offer?', a: 'QueryLock offers secure coding training, findings-based training, AI and LLM security training, and security training for product and leadership teams. Secure code review and secure development lifecycle topics can be added to secure coding training.' },
-    { q: 'Is training only for teams that already had a pentest?', a: 'No. QueryLock can help after a pentest, but the larger goal is prevention. We train teams to understand security earlier so they can write secure code from the start and catch risky patterns before release.' },
+    {
+      q: "Is QueryLock training customized?",
+      a: "Yes. You can share as much context as you are comfortable with, including your tech stack, architecture, application type, team experience level, common concerns, or a redacted pentest report. We use that context to build training that fits your environment.",
+    },
+    {
+      q: "What kind of training do you offer?",
+      a: "QueryLock offers secure coding training, findings-based training, AI and LLM security training, and security training for product and leadership teams. Secure code review and secure development lifecycle topics can be added to secure coding training.",
+    },
+    {
+      q: "Is training only for teams that already had a pentest?",
+      a: "No. QueryLock can help after a pentest, but the larger goal is prevention. We train teams to understand security earlier so they can write secure code from the start and catch risky patterns before release.",
+    },
   ],
   guides: [
-    { q: 'Do I need a technical background to read the guides?', a: 'No. QueryLock guides are built for people who want to learn a topic from the beginning. They explain the foundation first, then connect it to real security concepts.' },
-    { q: 'What topics do the guides cover?', a: 'QueryLock guides cover technology and security topics such as web applications, APIs, cloud applications, databases, containers, firewalls, AI, LLMs, and secure development basics.' },
-    { q: 'Are the guides free?', a: 'Some starter resources are free. Paid guides are available for readers who want to go deeper into a topic.' },
+    {
+      q: "Do I need a technical background to read the guides?",
+      a: "No. QueryLock guides are built for people who want to learn a topic from the beginning. They explain the foundation first, then connect it to real security concepts.",
+    },
+    {
+      q: "What topics do the guides cover?",
+      a: "QueryLock guides cover technology and security topics such as web applications, APIs, cloud applications, databases, containers, firewalls, AI, LLMs, and secure development basics.",
+    },
+    {
+      q: "Are the guides free?",
+      a: "Some starter resources are free. Paid guides are available for readers who want to go deeper into a topic.",
+    },
   ],
 };
 
-const labels: Record<Group, string> = { general: 'General', training: 'Training', guides: 'Guides' };
+const labels: Record<Group, string> = {
+  general: "General",
+  training: "Training",
+  guides: "Guides",
+};
 
 export default function FAQ() {
-  const [activeGroup, setActiveGroup] = useState<Group>('general');
+  const [activeGroup, setActiveGroup] = useState<Group>("general");
   const [openIdx, setOpenIdx] = useState(0);
   const items = groups[activeGroup];
 
@@ -36,46 +70,115 @@ export default function FAQ() {
   return (
     <section className="section section-lg" id="faq">
       <div className="container">
-        <div className="section-head-c">
+        <div className="mx-auto mb-14 flex max-w-[760px] flex-col items-center gap-4 text-center">
           <span className="eyebrow">Frequently Asked Questions</span>
-          <h2>Cybersecurity should make sense.</h2>
-          <p>Here are a few of the questions people ask about QueryLock, our guides, and our training.</p>
+          <h2 className="font-extrabold text-[clamp(32px,4.6vw,52px)] leading-[1.05] tracking-[-0.02em] text-balance">
+            Cybersecurity should make sense.
+          </h2>
+          <p className="max-w-[60ch] text-[17px] leading-[1.55] text-[var(--fg-2)]">
+            Here are a few of the questions people ask about QueryLock, our guides, and our
+            training.
+          </p>
         </div>
-        <div style={{ maxWidth: 820, margin: '0 auto' }}>
-          <div className="faq-tabs" role="tablist" aria-label="FAQ categories">
-            {(Object.keys(groups) as Group[]).map(group => (
-              <button
-                key={group}
-                type="button"
-                role="tab"
-                aria-selected={activeGroup === group}
-                className={`faq-tab ${activeGroup === group ? 'active' : ''}`}
-                onClick={() => selectGroup(group)}
-              >
-                {labels[group]}
-              </button>
-            ))}
-          </div>
-          <div className="faq-list" role="tabpanel" aria-label={`${labels[activeGroup]} questions`}>
-            {items.map((item, i) => (
-              <div key={`${activeGroup}-${i}`} className={`faq-item ${openIdx === i ? 'open' : ''}`}>
+
+        <div style={{ maxWidth: 820, margin: "0 auto" }}>
+          {/* Tab switcher */}
+          <div
+            className="mx-auto mb-7 flex w-full max-w-[430px] items-center justify-center gap-[6px] rounded-full border border-[var(--border)] bg-[var(--ql-ink-50)] p-[6px] [@media(max-width:480px)]:rounded-[18px]"
+            role="tablist"
+            aria-label="FAQ categories"
+          >
+            {(Object.keys(groups) as Group[]).map((group) => {
+              const isActive = activeGroup === group;
+              return (
                 <button
-                  className="faq-question"
-                  onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
-                  aria-expanded={openIdx === i}
+                  key={group}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={[
+                    "flex-1 rounded-full border-0 px-[18px] py-[11px]",
+                    "cursor-pointer [font-family:var(--font-display)] text-sm font-bold",
+                    "[transition:color_var(--dur-base)_var(--ease-out),background_var(--dur-base)_var(--ease-out),box-shadow_var(--dur-base)_var(--ease-out)]",
+                    "[@media(max-width:480px)]:px-2 [@media(max-width:480px)]:py-[10px] [@media(max-width:480px)]:text-[13px]",
+                    isActive
+                      ? "bg-gradient-to-br from-[var(--ql-deep-purple)] to-[var(--ql-violet)] text-white shadow-[0_8px_20px_color-mix(in_srgb,var(--ql-deep-purple)_18%,transparent)]"
+                      : "bg-transparent text-[var(--ql-deep-purple)] hover:bg-[color-mix(in_srgb,var(--ql-violet)_8%,transparent)]",
+                  ].join(" ")}
+                  onClick={() => selectGroup(group)}
                 >
-                  <span>{item.q}</span>
-                  <span className="faq-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </span>
+                  {labels[group]}
                 </button>
-                <div className="faq-answer" role="region">
-                  <div className="faq-answer-inner">{item.a}</div>
+              );
+            })}
+          </div>
+
+          {/* FAQ list */}
+          <div
+            className="flex flex-col gap-3"
+            role="tabpanel"
+            aria-label={`${labels[activeGroup]} questions`}
+          >
+            {items.map((item, i) => {
+              const isOpen = openIdx === i;
+              return (
+                <div
+                  key={`${activeGroup}-${i}`}
+                  className={[
+                    "overflow-hidden rounded-[18px] border bg-white",
+                    "[transition:border-color_var(--dur-fast)_var(--ease-out),box-shadow_var(--dur-fast)_var(--ease-out)]",
+                    isOpen
+                      ? "border-[var(--ql-lavender-400)] shadow-[0_8px_24px_color-mix(in_srgb,var(--ql-deep-purple)_8%,transparent)]"
+                      : "border-[var(--border)]",
+                  ].join(" ")}
+                >
+                  <button
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 bg-transparent px-6 py-[22px] text-left [font-family:var(--font-display)] text-[17px] font-bold tracking-[-0.005em] text-[var(--ql-deep-purple)]"
+                    onClick={() => setOpenIdx(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>{item.q}</span>
+                    <span
+                      className="flex h-8 w-8 flex-none items-center justify-center rounded-full"
+                      style={{
+                        background: isOpen
+                          ? "linear-gradient(135deg, var(--ql-violet), var(--ql-magenta))"
+                          : "linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 10%, transparent), color-mix(in srgb, var(--ql-magenta) 10%, transparent))",
+                        color: isOpen ? "var(--ql-white)" : "var(--ql-violet)",
+                        transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                        transition:
+                          "transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out)",
+                      }}
+                      aria-hidden="true"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
+                        <path d="M12 5v14M5 12h14" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <div
+                    className="overflow-hidden"
+                    style={{
+                      maxHeight: isOpen ? 600 : 0,
+                      transition: "max-height 320ms cubic-bezier(0.2, 0.7, 0.2, 1)",
+                    }}
+                    role="region"
+                  >
+                    <div className="px-6 pb-[22px] text-[15px] leading-[1.6] text-[var(--fg-2)]">
+                      {item.a}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
