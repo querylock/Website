@@ -34,7 +34,7 @@ export default function Nav({ active = "home" }: NavProps) {
             <img
               src="/assets/querylock-horizontal-light.jpg"
               alt="QueryLock"
-              style={{ height: 44, width: "auto", mixBlendMode: "multiply" }}
+              style={{ height: 56, width: "auto", mixBlendMode: "multiply" }}
             />
           </a>
 
@@ -52,7 +52,7 @@ export default function Nav({ active = "home" }: NavProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <a href="/training#contact" className="btn btn-primary px-5 py-[10px] text-[13px]">
+              <a href="/training#contact" className="nav:inline-flex hidden btn btn-primary px-5 py-[10px] text-[13px]">
                 Schedule training
               </a>
               <button
