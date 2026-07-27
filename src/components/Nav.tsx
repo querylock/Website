@@ -32,9 +32,9 @@ export default function Nav({ active = "home" }: NavProps) {
             aria-label="QueryLock home"
           >
             <img
-              src="/assets/querylock-horizontal-light.jpg"
+              src="/assets/querylock-transparent.png"
               alt="QueryLock"
-              style={{ height: 56, width: "auto", mixBlendMode: "multiply" }}
+              style={{ height: 56, width: "auto" }}
             />
           </a>
 
