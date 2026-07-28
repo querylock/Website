@@ -16,6 +16,8 @@ export interface FreeResource {
   id: string;
   title: string;
   kind: "Guide" | "Checklist";
+  url: string;
+  cost: string;
 }
 
 export interface Training {
@@ -144,15 +146,41 @@ export const series: Series[] = [
 ];
 
 export const freeResources: FreeResource[] = [
-  { id: "llm", title: "How a Large Language Model Works", kind: "Guide" },
-  { id: "ai-check", title: "Is Your AI Secure? A Beginner’s Checklist", kind: "Checklist" },
   {
-    id: "web-check",
-    title: "Is Your Web Application Secure? A Beginner’s Checklist",
-    kind: "Checklist",
+    id: "llm",
+    title: "How a Large Language Model Works",
+    kind: "Guide",
+    url: "https://querylock.gumroad.com/l/LLM?layout=profile",
+    cost: "· free",
   },
-  { id: "api-check", title: "Is Your API Secure? A Beginner’s Checklist", kind: "Checklist" },
-  { id: "cloud-check", title: "Is Your Cloud Secure? A Beginner’s Checklist", kind: "Checklist" },
+  {
+    id: "cloud",
+    title: "How the Cloud Works",
+    kind: "Guide",
+    url: "https://querylock.gumroad.com/l/cloud?layout=profile",
+    cost: "",
+  },
+  {
+    id: "cloud-check",
+    title: "Is Your Cloud Secure? A Beginner’s Checklist",
+    kind: "Checklist",
+    url: "https://querylock.gumroad.com/",
+    cost: "· free",
+  },
+  {
+    id: "firewall",
+    title: "How Firewalls Work",
+    kind: "Guide",
+    url: "https://querylock.gumroad.com/l/firewalls?layout=profile",
+    cost: "",
+  },
+  {
+    id: "internet",
+    title: "How the Internet Works",
+    kind: "Guide",
+    url: "https://querylock.gumroad.com/l/internet?layout=profile",
+    cost: "",
+  },
 ];
 
 export const training: Training[] = [

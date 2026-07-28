@@ -3,8 +3,8 @@ const trainings = [
   {
     id: "secure-coding",
     title: "Secure Coding Training",
-    tagline: "We tailor the workshop around your team's real development work.",
-    desc: "We tailor the workshop around your team's tech stack, application patterns, architecture, and development workflow so developers understand how security shows up in the code they write every day. Instead of memorizing vulnerability names, your team learns how insecure patterns happen, how to prevent them earlier, and how to make safer decisions while building features.",
+    tagline: "Build security into everyday development.",
+    desc: "We teach developers why vulnerabilities happen, how insecure patterns appear in real code, and how to prevent them before production. Training is tailored to your technology, architecture, and development workflow.",
     bullets: [
       "Spot risky patterns during development",
       "Understand authentication, authorization, access control, APIs, error handling, and common data risks",
@@ -13,53 +13,53 @@ const trainings = [
       "Build security habits that carry forward into future work",
     ],
     addon:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+      "<strong> Secure Development Lifecycle Review </strong><br />" +
+      "We help your team identify where security guidance, checks, and ownership should fit throughout planning, development, review, and release.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
   },
   {
     id: "findings-based",
     title: "Findings Based Training",
-    tagline: "A customized training built around your actual issues. It makes findings stick.",
-    desc: "We turn your pentest findings into practical lessons for your team. We explain what happened, why it happened, how it could show up in similar code, and what patterns developers can use to prevent it in the future — especially useful for teams that keep seeing similar findings.",
+    tagline: "Turn pentest findings into lasting understanding.",
+    desc: "We transform your findings into practical lessons. Developers learn what caused each issue, how it could appear elsewhere, and how to fix the underlying pattern instead of only applying the mitigation recommendations.",
     bullets: [
       "Understand the root cause behind past findings",
-      "See what similar issues look like in real code",
-      "Recognize similar patterns in future work",
-      "Apply specific remediations, not just general guidance",
+      "Recognize similar patterns in code",
+      "Apply practical, code-level fixes",
       "Improve communication between security and engineering",
       "Reduce repeat issues over time",
+      "Reduce repeat issues over time"
     ],
     addon:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+      "<strong>Remediation Review</strong><br />" +
+      "After training, we review your team’s planned or completed fixes to confirm the root cause was addressed and identify related patterns before they become future findings.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`,
   },
   {
     id: "ai-llm",
     title: "AI and LLM Security Training",
-    tagline: "AI security training needs to go beyond chatbot tricks.",
-    desc: "Built for teams creating, integrating, or managing AI features — chatbots, internal assistants, connected tools, RAG systems, customer-facing workflows, or AI features inside an existing product. We focus on where AI creates real risk, where traditional security still matters, and when a simpler solution may be safer than using AI at all.",
+    tagline: "Secure AI starts with understanding how it works.",
+    desc: "We teach teams how AI systems work, where risks enter, and when AI may not be the right solution. Whether you are planning an integration or improving one already in use, training is tailored to your models, stack, and workflows.",
     bullets: [
       "Understand prompt injection and data leakage risks",
       "Design safer AI workflows and tool integrations",
-      "Recognize unsafe model behavior and over-trust",
-      "Think through guardrails, permissions, logging, and sensitive data exposure",
-      "Decide when AI is the right solution and when it is not",
-      "Build AI features with security in mind from the beginning",
+      "Apply practical guardrails, permissions, and logging",
+      "Recognize where traditional application security still matters",
+      "Decide when AI is the right solution and when it is not"
+
     ],
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h.01M15 9h.01M9 15h6"/><circle cx="12" cy="12" r="3"/></svg>`,
   },
   {
     id: "product-leadership",
     title: "Security for Product and Leadership Teams",
-    tagline: "Security decisions are easier when everyone understands the tradeoffs.",
-    desc: "Built for product managers, engineering leaders, executives, and mixed teams that need to make better security decisions without going deep into code. We focus on real risk, user impact, prioritization, and how security choices affect the product.",
+    tagline: "Make technical decisions with confidence.",
+    desc: "We teach product managers, team leads, and executives the technical concepts behind application, AI, and data security. Participants learn enough to understand findings, ask informed questions, discuss tradeoffs, and make informed decisions without needing a technical liaison.",
     bullets: [
-      "Understand what security findings actually mean",
+      "Understand how common vulnerabilities happen",
       "Prioritize remediation with better context",
-      "Ask stronger questions during planning and release discussions",
-      "Support developers without turning security into a blocker",
-      "Understand application, AI, and data security risks at a decision-making level",
-      "Build a stronger security culture without fear-based messaging",
+      "Connect technical risks to business decisions",
+      "Understand application, AI, and data security risks at a decision-making level"
     ],
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
   },
@@ -112,7 +112,7 @@ const trainings = [
                 <div class="available-training-addon">
                   <hr class="available-training-hr" />
                   <p class="available-training-addon-label">Optional add-on</p>
-                  <p class="available-training-addon-text">{t.addon}</p>
+                  <p class="available-training-addon-text" set:html={t.addon} />
                 </div>
               )}
             </div>
