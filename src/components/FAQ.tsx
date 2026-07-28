@@ -10,15 +10,15 @@ const groups: Record<Group, { q: string; a: string }[]> = {
     },
     {
       q: "What does QueryLock do?",
-      a: "QueryLock teaches cybersecurity through practical guides and hands-on training. We help curious learners understand security concepts, and we help teams write secure code, catch risks sooner, and make better security decisions.",
+      a: "QueryLock is a cybersecurity education company that makes security easier to understand and apply. Our guides help curious learners build confidence in technical topics, while our hands-on training helps teams prevent vulnerabilities, reduce repeat findings, and make better security decisions.",
     },
     {
       q: "Who is QueryLock for?",
-      a: "QueryLock is for anyone who wants cybersecurity to make more sense. That includes beginners, developers, security teams, product teams, and companies that want to lower risk before issues reach production.",
+      a: "QueryLock is for anyone who wants technology and security to make more sense. Our guides are built for curious learners with no prior knowledge, while our training helps developers, product teams, leaders, and organizations make better security decisions.",
     },
     {
       q: "What makes QueryLock different?",
-      a: "QueryLock is education first. We do not assume you already have background knowledge, and we do not teach just to check a box. Our guides start with the foundation, and our training is tailored to your team's real stack, systems, and goals.",
+      a: "QueryLock teaches for understanding, not completion. Our guides take readers from zero knowledge to real confidence, and our training uses your team’s systems, code, and findings to build practical knowledge that lasts beyond the session.",
     },
   ],
   training: [
@@ -28,7 +28,7 @@ const groups: Record<Group, { q: string; a: string }[]> = {
     },
     {
       q: "What kind of training do you offer?",
-      a: "QueryLock offers secure coding training, findings-based training, AI and LLM security training, and security training for product and leadership teams. Secure code review and secure development lifecycle topics can be added to secure coding training.",
+      a: "We offer secure coding, findings-based, AI and LLM security, and technical security training for business professionals. Every workshop focuses on real understanding and can be tailored to your team’s technology, goals, and experience.",
     },
     {
       q: "Is training only for teams that already had a pentest?",
@@ -38,7 +38,7 @@ const groups: Record<Group, { q: string; a: string }[]> = {
   guides: [
     {
       q: "Do I need a technical background to read the guides?",
-      a: "No. QueryLock guides are built for people who want to learn a topic from the beginning. They explain the foundation first, then connect it to real security concepts.",
+      a: "No. Every guide starts with the foundation and assumes no prior knowledge. In about 20 minutes, you can go from curious to confidently discussing the topic.",
     },
     {
       q: "What topics do the guides cover?",
@@ -46,7 +46,7 @@ const groups: Record<Group, { q: string; a: string }[]> = {
     },
     {
       q: "Are the guides free?",
-      a: "Some starter resources are free. Paid guides are available for readers who want to go deeper into a topic.",
+      a: "Some QueryLock guides are free. All paid guides cost less than $10 to keep learning accessible. Every guide is a short, focused read designed to make a technical topic understandable with no prior knowledge required.",
     },
   ],
 };
