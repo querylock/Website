@@ -6,14 +6,40 @@ import WhyChooseUs from "../components/WhyChooseUs.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav";
 import FAQ from "../components/FAQ";
-import AvailableTrainings from "../components/AvailableTrainings.astro";
+import AvailableTrainings, { trainings } from "../components/AvailableTrainings.astro";
 import TrainingForm from "../components/TrainingForm.astro";
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "QueryLock Security Training",
+  description:
+    "Practitioner-led security training for engineering, security, and leadership teams. Live, virtual or onsite, scoped to your stack.",
+  provider: {
+    "@type": "Organization",
+    name: "QueryLock",
+    url: "https://querylock.com/",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Training Tracks",
+    itemListElement: trainings.map((t) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: t.title,
+        description: t.desc,
+      },
+    })),
+  },
+};
 ---
 
 <Layout
   title="Training | QueryLock"
   description="Practitioner-led security training for engineering, security, and leadership teams. Live, virtual or onsite, scoped to your stack."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
   <Nav active="training" client:load />
   <main>
     <section class="training-hero">

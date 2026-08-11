@@ -28,6 +28,15 @@ const organizationJsonLd = {
     "https://github.com/querylock",
   ],
 };
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "QueryLock",
+  url: "https://querylock.com/",
+  description:
+    "QueryLock makes cybersecurity easier to understand with practical guides and hands-on security training built around your team's needs.",
+};
 ---
 
 <Layout
@@ -35,6 +44,7 @@ const organizationJsonLd = {
   description="QueryLock makes cybersecurity easier to understand with practical guides and hands-on security training built around your team's needs."
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
   <Nav active="home" client:load />
   <main>
     <Hero />

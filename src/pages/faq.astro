@@ -2,13 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer.astro";
-import FAQ from "../components/FAQ";
+import FAQ, { groups } from "../components/FAQ";
+
+// All three tabs now render permanently into the DOM (hidden via CSS, not
+// conditional rendering), so every Q&A pair across all groups is included.
+const allFaqItems = [...groups.general, ...groups.training, ...groups.guides];
+
+const faqPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: allFaqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 ---
 
 <Layout
   title="FAQ | QueryLock"
   description="Answers to common questions about QueryLock, our cybersecurity guides, and team training."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPageJsonLd)} />
   <Nav client:load />
   <main>
     <FAQ client:load />
