@@ -13,7 +13,9 @@ export function getStaticPaths() {
 
 const { guide } = Astro.props;
 
-const canonicalUrl = new URL(`/guides/${guide.slug}`, Astro.site).toString();
+const canonicalUrl = new URL(`/guides/${guide.slug}/`, Astro.site).toString();
+const guidesIndexUrl = new URL("/guides/", Astro.site).toString();
+const homeUrl = new URL("/", Astro.site).toString();
 const priceLabel = guide.isPWYW
   ? "Free (pay what you want)"
   : `$${(guide.priceCents / 100).toFixed(2)}`;
@@ -41,14 +43,26 @@ const jsonLd = {
     },
   },
 };
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
+    { "@type": "ListItem", position: 2, name: "Guides", item: guidesIndexUrl },
+    { "@type": "ListItem", position: 3, name: guide.name, item: canonicalUrl },
+  ],
+};
 ---
 
 <Layout
   title={`${guide.name} | QueryLock Guides`}
   description={guide.metaDescription}
   canonical={canonicalUrl}
+  ogImage={guide.thumbnailUrl}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   <Nav active="learning" client:load />
   <main>
     <section class="guide-hero">

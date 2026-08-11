@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://querylock.com/sitemap-index.xml
