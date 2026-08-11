@@ -63,6 +63,7 @@ const breadcrumbJsonLd = {
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  <script slot="head" src="https://shop.querylock.com/js/gumroad.js"></script>
   <Nav active="learning" client:load />
   <main>
     <section class="guide-hero">
@@ -78,8 +79,7 @@ const breadcrumbJsonLd = {
           <div class="guide-hero-ctas">
             <a
               href={guide.gumroadUrl}
-              target="_blank"
-              rel="noopener"
+              data-gumroad-overlay-checkout="true"
               class="btn btn-primary btn-lg"
             >
               Get the guide
@@ -149,7 +149,11 @@ const breadcrumbJsonLd = {
         <div class="guide-cta">
           <h2>Ready to read {guide.name}?</h2>
           <p>Get instant access on Gumroad, {priceLabel.toLowerCase()}.</p>
-          <a href={guide.gumroadUrl} target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+          <a
+            href={guide.gumroadUrl}
+            data-gumroad-overlay-checkout="true"
+            class="btn btn-primary btn-lg"
+          >
             Get the guide
             <svg
               width="14"
