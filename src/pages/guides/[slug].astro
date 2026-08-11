@@ -1,0 +1,312 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import Nav from "../../components/Nav";
+import { guides } from "../../data/guides";
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+
+const canonicalUrl = new URL(`/guides/${guide.slug}`, Astro.site).toString();
+const priceLabel = guide.isPWYW
+  ? "Free (pay what you want)"
+  : `$${(guide.priceCents / 100).toFixed(2)}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: guide.name,
+  description: guide.metaDescription,
+  url: canonicalUrl,
+  image: guide.thumbnailUrl,
+  brand: {
+    "@type": "Organization",
+    name: "QueryLock",
+  },
+  offers: {
+    "@type": "Offer",
+    price: (guide.priceCents / 100).toFixed(2),
+    priceCurrency: "USD",
+    url: guide.gumroadUrl,
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: "QueryLock",
+    },
+  },
+};
+---
+
+<Layout
+  title={`${guide.name} | QueryLock Guides`}
+  description={guide.metaDescription}
+  canonical={canonicalUrl}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Nav active="learning" client:load />
+  <main>
+    <section class="guide-hero">
+      <div class="container">
+        <div class="guide-hero-inner">
+          <a href="/guides" class="back-link">&larr; All guides</a>
+          <span class="hero-badge"><span class="dot"></span>{guide.eyebrow}</span>
+          <h1>{guide.name}</h1>
+          <div class="guide-meta">
+            <span class="pill pill-soft">{priceLabel}</span>
+            <span class="pill pill-outline">~{guide.readMinutes} min read</span>
+          </div>
+          <div class="guide-hero-ctas">
+            <a
+              href={guide.gumroadUrl}
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary btn-lg"
+            >
+              Get the guide
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"></path></svg
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-body section">
+      <div class="container-narrow">
+        <div class="guide-intro">
+          {guide.intro.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+
+        <div class="guide-block">
+          <h2>What you'll learn</h2>
+          <ul class="guide-learn-list">
+            {
+              guide.whatYoullLearn.map((item) => (
+                <li>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12l4 4L19 6" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="guide-block">
+          <h2>Who this is for</h2>
+          <p>{guide.whoThisIsFor}</p>
+        </div>
+
+        <div class="guide-block">
+          <h2>Frequently asked questions</h2>
+          <div class="guide-faq-list">
+            {
+              guide.faq.map((item) => (
+                <div class="guide-faq-item">
+                  <h3>{item.q}</h3>
+                  <p>{item.a}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="guide-cta">
+          <h2>Ready to read {guide.name}?</h2>
+          <p>Get instant access on Gumroad, {priceLabel.toLowerCase()}.</p>
+          <a href={guide.gumroadUrl} target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            Get the guide
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"></path></svg
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .guide-hero {
+    background:
+      radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        color-mix(in srgb, var(--ql-violet) 10%, transparent) 0%,
+        transparent 70%
+      ),
+      var(--ql-white);
+    padding: 56px 0 48px;
+  }
+  @media (min-width: 760px) {
+    .guide-hero {
+      padding: 72px 0 56px;
+    }
+  }
+
+  .guide-hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .back-link {
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--fg-2);
+    text-decoration: none;
+  }
+  .back-link:hover {
+    color: var(--ql-violet);
+  }
+
+  .guide-hero-inner h1 {
+    font-weight: 800;
+    font-size: clamp(30px, 5vw, 52px);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .guide-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .guide-hero-ctas {
+    margin-top: 8px;
+  }
+
+  .guide-body {
+    padding-top: 0;
+  }
+
+  .guide-intro p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--fg-2);
+    margin: 0 0 20px;
+  }
+
+  .guide-block {
+    margin-top: 48px;
+  }
+
+  .guide-block h2 {
+    font-family: var(--font-display), system-ui;
+    font-weight: 800;
+    font-size: clamp(22px, 3vw, 28px);
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    color: var(--fg-1);
+  }
+
+  .guide-block > p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--fg-2);
+    margin: 0;
+  }
+
+  .guide-learn-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .guide-learn-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--fg-2);
+  }
+  .guide-learn-list svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--ql-violet);
+  }
+
+  .guide-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .guide-faq-item {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+  .guide-faq-item h3 {
+    font-family: var(--font-display), system-ui;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 8px;
+    color: var(--fg-1);
+  }
+  .guide-faq-item p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg-2);
+    margin: 0;
+  }
+
+  .guide-cta {
+    margin-top: 56px;
+    padding: 40px 32px;
+    border-radius: 24px;
+    background: var(--ql-deep-purple);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .guide-cta h2 {
+    font-family: var(--font-display), system-ui;
+    font-weight: 800;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--ql-white);
+    margin: 0;
+  }
+  .guide-cta p {
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 8px;
+    font-size: 15px;
+  }
+</style>
