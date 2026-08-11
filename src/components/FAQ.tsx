@@ -2,7 +2,7 @@ import { useState } from "react";
 
 type Group = "general" | "training" | "guides";
 
-const groups: Record<Group, { q: string; a: string }[]> = {
+export const groups: Record<Group, { q: string; a: string }[]> = {
   general: [
     {
       q: "What is QueryLock?",
@@ -59,12 +59,17 @@ const labels: Record<Group, string> = {
 
 export default function FAQ() {
   const [activeGroup, setActiveGroup] = useState<Group>("general");
-  const [openIdx, setOpenIdx] = useState(0);
-  const items = groups[activeGroup];
+  const [openIdx, setOpenIdx] = useState<Record<Group, number>>({
+    general: 0,
+    training: 0,
+    guides: 0,
+  });
 
-  const selectGroup = (group: Group) => {
-    setActiveGroup(group);
-    setOpenIdx(0);
+  const toggleItem = (group: Group, i: number) => {
+    setOpenIdx((prev) => ({
+      ...prev,
+      [group]: prev[group] === i ? -1 : i,
+    }));
   };
 
   return (
@@ -105,7 +110,7 @@ export default function FAQ() {
                       ? "bg-gradient-to-br from-[var(--ql-deep-purple)] to-[var(--ql-violet)] text-white shadow-[0_8px_20px_color-mix(in_srgb,var(--ql-deep-purple)_18%,transparent)]"
                       : "bg-transparent text-[var(--ql-deep-purple)] hover:bg-[color-mix(in_srgb,var(--ql-violet)_8%,transparent)]",
                   ].join(" ")}
-                  onClick={() => selectGroup(group)}
+                  onClick={() => setActiveGroup(group)}
                 >
                   {labels[group]}
                 </button>
@@ -113,73 +118,79 @@ export default function FAQ() {
             })}
           </div>
 
-          {/* FAQ list */}
-          <div
-            className="flex flex-col gap-3"
-            role="tabpanel"
-            aria-label={`${labels[activeGroup]} questions`}
-          >
-            {items.map((item, i) => {
-              const isOpen = openIdx === i;
-              return (
-                <div
-                  key={`${activeGroup}-${i}`}
-                  className={[
-                    "overflow-hidden rounded-[18px] border bg-white",
-                    "[transition:border-color_var(--dur-fast)_var(--ease-out),box-shadow_var(--dur-fast)_var(--ease-out)]",
-                    isOpen
-                      ? "border-[var(--ql-lavender-400)] shadow-[0_8px_24px_color-mix(in_srgb,var(--ql-deep-purple)_8%,transparent)]"
-                      : "border-[var(--border)]",
-                  ].join(" ")}
-                >
-                  <button
-                    className="flex w-full cursor-pointer items-center justify-between gap-4 bg-transparent px-6 py-[22px] text-left [font-family:var(--font-display)] text-[17px] font-bold tracking-[-0.005em] text-[var(--ql-deep-purple)]"
-                    onClick={() => setOpenIdx(isOpen ? -1 : i)}
-                    aria-expanded={isOpen}
-                  >
-                    <span>{item.q}</span>
-                    <span
-                      className="flex h-8 w-8 flex-none items-center justify-center rounded-full"
-                      style={{
-                        background: isOpen
-                          ? "linear-gradient(135deg, var(--ql-violet), var(--ql-magenta))"
-                          : "linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 10%, transparent), color-mix(in srgb, var(--ql-magenta) 10%, transparent))",
-                        color: isOpen ? "var(--ql-white)" : "var(--ql-violet)",
-                        transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                        transition:
-                          "transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out)",
-                      }}
-                      aria-hidden="true"
-                    >
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path d="M12 5v14M5 12h14" />
-                      </svg>
-                    </span>
-                  </button>
-
+          {/* FAQ lists: all groups render into the DOM at all times (for
+              crawlability/structured-data accuracy) and only the active
+              group's panel is visually shown, matching Google's documented
+              support for CSS-hidden tab/accordion content. */}
+          {(Object.keys(groups) as Group[]).map((group) => (
+            <div
+              key={group}
+              className={group === activeGroup ? "flex flex-col gap-3" : "hidden"}
+              role="tabpanel"
+              aria-label={`${labels[group]} questions`}
+            >
+              {groups[group].map((item, i) => {
+                const isOpen = openIdx[group] === i;
+                return (
                   <div
-                    className="overflow-hidden"
-                    style={{
-                      maxHeight: isOpen ? 600 : 0,
-                      transition: "max-height 320ms cubic-bezier(0.2, 0.7, 0.2, 1)",
-                    }}
-                    role="region"
+                    key={`${group}-${i}`}
+                    className={[
+                      "overflow-hidden rounded-[18px] border bg-white",
+                      "[transition:border-color_var(--dur-fast)_var(--ease-out),box-shadow_var(--dur-fast)_var(--ease-out)]",
+                      isOpen
+                        ? "border-[var(--ql-lavender-400)] shadow-[0_8px_24px_color-mix(in_srgb,var(--ql-deep-purple)_8%,transparent)]"
+                        : "border-[var(--border)]",
+                    ].join(" ")}
                   >
-                    <div className="px-6 pb-[22px] text-[15px] leading-[1.6] text-[var(--fg-2)]">
-                      {item.a}
+                    <button
+                      className="flex w-full cursor-pointer items-center justify-between gap-4 bg-transparent px-6 py-[22px] text-left [font-family:var(--font-display)] text-[17px] font-bold tracking-[-0.005em] text-[var(--ql-deep-purple)]"
+                      onClick={() => toggleItem(group, i)}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{item.q}</span>
+                      <span
+                        className="flex h-8 w-8 flex-none items-center justify-center rounded-full"
+                        style={{
+                          background: isOpen
+                            ? "linear-gradient(135deg, var(--ql-violet), var(--ql-magenta))"
+                            : "linear-gradient(135deg, color-mix(in srgb, var(--ql-violet) 10%, transparent), color-mix(in srgb, var(--ql-magenta) 10%, transparent))",
+                          color: isOpen ? "var(--ql-white)" : "var(--ql-violet)",
+                          transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                          transition:
+                            "transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out)",
+                        }}
+                        aria-hidden="true"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                        >
+                          <path d="M12 5v14M5 12h14" />
+                        </svg>
+                      </span>
+                    </button>
+
+                    <div
+                      className="overflow-hidden"
+                      style={{
+                        maxHeight: isOpen ? 600 : 0,
+                        transition: "max-height 320ms cubic-bezier(0.2, 0.7, 0.2, 1)",
+                      }}
+                      role="region"
+                    >
+                      <div className="px-6 pb-[22px] text-[15px] leading-[1.6] text-[var(--fg-2)]">
+                        {item.a}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
