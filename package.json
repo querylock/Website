@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.6.0",
+    "@astrojs/sitemap": "^3.2.1",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^4.16.19",
     "react": "^18.3.1",

@@ -1,5 +1,59 @@
 ---
-import { freeResources } from "../data/content";
+// Hardcoded on purpose: this is a manually curated shortlist for the homepage
+// panel, not a full listing. Update by hand when swapping featured guides.
+// See /guides for the full, dynamically generated catalog.
+interface PanelItem {
+  title: string;
+  label: string;
+  url: string;
+  external: boolean;
+  icon: "guide" | "catalog";
+}
+
+const panelItems: PanelItem[] = [
+  {
+    title: "How a Large Language Model (LLM) Works",
+    label: "Guide · free",
+    url: "https://shop.querylock.com/l/LLM?layout=profile",
+    external: true,
+    icon: "guide",
+  },
+  {
+    title: "How the Internet Works",
+    label: "Guide",
+    url: "https://shop.querylock.com/l/internet?layout=profile",
+    external: true,
+    icon: "guide",
+  },
+  {
+    title: "How the Cloud Works",
+    label: "Guide",
+    url: "https://shop.querylock.com/l/cloud?layout=profile",
+    external: true,
+    icon: "guide",
+  },
+  {
+    title: "How Web Applications Work",
+    label: "Guide",
+    url: "https://shop.querylock.com/l/webapps?layout=profile",
+    external: true,
+    icon: "guide",
+  },
+  {
+    title: "How Firewalls Work",
+    label: "Guide",
+    url: "https://shop.querylock.com/l/firewalls?layout=profile",
+    external: true,
+    icon: "guide",
+  },
+  {
+    title: "View all guides",
+    label: "Guide catalog",
+    url: "/guides",
+    external: false,
+    icon: "catalog",
+  },
+];
 
 const patternCells: { x: number; y: number; sz: number; color: string }[] = [];
 for (let i = 0; i < 100; i++) {
@@ -11,8 +65,10 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const checklistIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l2 2 4-4M8 14l2 2 4-4"/></svg>`;
-const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11a4 4 0 014 4v12H8a4 4 0 01-4-4V4z"/><path d="M4 16a4 4 0 014-4h11"/></svg>`;
+const icons: Record<PanelItem["icon"], string> = {
+  guide: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11a4 4 0 014 4v12H8a4 4 0 01-4-4V4z"/><path d="M4 16a4 4 0 014-4h11"/></svg>`,
+  catalog: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>`,
+};
 ---
 
 <section class="free-resources section section-lg" id="free">
@@ -28,28 +84,35 @@ const guideIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" s
   <div class="container" style="position:relative">
     <div class="mx-auto mb-14 flex max-w-[760px] flex-col items-center gap-4 text-center">
       <span class="eyebrow" style="color:var(--ql-lavender-200)">Guides for Everyone </span>
-      <h2 class="font-extrabold text-[clamp(32px,4.6vw,52px)] leading-[1.05] tracking-[-0.02em] text-balance" style="color:#fff">
-         Start Curious <br /><span
+      <h2
+        class="text-[clamp(32px,4.6vw,52px)] leading-[1.05] font-extrabold tracking-[-0.02em] text-balance"
+        style="color:#fff"
+      >
+        Start Curious <br /><span
           style="background:linear-gradient(135deg,#EAB4F8,#CB44EF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent"
-          > Finish Confident </span
         >
+          Finish Confident
+        </span>
       </h2>
       <p class="max-w-[60ch] text-[17px] leading-[1.55]" style="color:rgba(255,255,255,.78)">
-       Each QueryLock guide explains how the technology works, why it matters, and how it stays secure without assuming any prior knowledge.
-        Become conversational on a new topic in under 20 minutes.
+        Each QueryLock guide explains how the technology works, why it matters, and how it stays
+        secure without assuming any prior knowledge. Become conversational on a new topic in under
+        20 minutes.
       </p>
     </div>
 
     <div class="free-grid">
       {
-        freeResources.map((item) => (
-          <a href={item.url} target="_blank" rel="noopener" class="free-item">
-            <div
-              class="free-item-glyph"
-              set:html={item.kind === "Checklist" ? checklistIcon : guideIcon}
-            />
+        panelItems.map((item) => (
+          <a
+            href={item.url}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener" : undefined}
+            class="free-item"
+          >
+            <div class="free-item-glyph" set:html={icons[item.icon]} />
             <div class="free-item-text">
-              <div class="free-item-label">{item.kind} {item.cost}</div>
+              <div class="free-item-label">{item.label}</div>
               <div class="free-item-title">{item.title}</div>
             </div>
             <svg

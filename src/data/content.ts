@@ -12,14 +12,6 @@ export interface Series {
   tag: string;
 }
 
-export interface FreeResource {
-  id: string;
-  title: string;
-  kind: "Guide" | "Checklist";
-  url: string;
-  cost: string;
-}
-
 export interface Training {
   id: string;
   title: string;
@@ -35,7 +27,7 @@ export const series: Series[] = [
     id: "how-things-work",
     title: "How Things Work",
     blurb:
-      "The fundamentals. APIs, databases, the cloud, LLMs — explained the way you wish someone had explained them in the first place.",
+      "The fundamentals. APIs, databases, the cloud, LLMs, explained the way you wish someone had explained them in the first place.",
     count: 7,
     paid: 6,
     free: 1,
@@ -77,7 +69,7 @@ export const series: Series[] = [
     id: "ai-in-practice",
     title: "AI in Practice",
     blurb:
-      "Choosing the right model for the job — recognition, prediction, generation, automation. With concrete examples.",
+      "Choosing the right model for the job: recognition, prediction, generation, automation. With concrete examples.",
     count: 6,
     paid: 6,
     free: 0,
@@ -105,7 +97,7 @@ export const series: Series[] = [
     id: "securing-web",
     title: "Securing Web Applications",
     blurb:
-      "Injection, XSS, CSRF, broken access, business logic, SSRF. The OWASP top hits — and how to actually fix them.",
+      "Injection, XSS, CSRF, broken access, business logic, SSRF. The OWASP top hits, and how to actually fix them.",
     count: 10,
     paid: 9,
     free: 1,
@@ -142,44 +134,6 @@ export const series: Series[] = [
     category: "securing",
     featured: false,
     tag: "Multi-cloud",
-  },
-];
-
-export const freeResources: FreeResource[] = [
-  {
-    id: "llm",
-    title: "How a Large Language Model Works",
-    kind: "Guide",
-    url: "https://shop.querylock.com/l/LLM?layout=profile",
-    cost: "· free",
-  },
-  {
-    id: "cloud",
-    title: "How the Cloud Works",
-    kind: "Guide",
-    url: "https://shop.querylock.com/l/cloud?layout=profile",
-    cost: "",
-  },
-  {
-    id: "cloud-check",
-    title: "Is Your Cloud Secure? A Beginner’s Checklist",
-    kind: "Checklist",
-    url: "https://shop.querylock.com/",
-    cost: "· free",
-  },
-  {
-    id: "firewall",
-    title: "How Firewalls Work",
-    kind: "Guide",
-    url: "https://shop.querylock.com/l/firewalls?layout=profile",
-    cost: "",
-  },
-  {
-    id: "internet",
-    title: "How the Internet Works",
-    kind: "Guide",
-    url: "https://shop.querylock.com/l/internet?layout=profile",
-    cost: "",
   },
 ];
 

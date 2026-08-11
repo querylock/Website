@@ -72,7 +72,7 @@
 }
 
 /* ============================================================
-   BASE LAYER — custom properties, resets, element defaults
+   BASE LAYER: custom properties, resets, element defaults
    ============================================================ */
 
 @layer base {
@@ -307,7 +307,7 @@
 }
 
 /* ============================================================
-   UTILITIES LAYER — layout helpers and visual modifiers
+   UTILITIES LAYER: layout helpers and visual modifiers
    ============================================================ */
 
 @layer utilities {
@@ -360,7 +360,7 @@
 }
 
 /* ============================================================
-   COMPONENTS LAYER — shared UI primitives only
+   COMPONENTS LAYER: shared UI primitives only
    Note: Component-specific styles live in each component file.
    Astro components use <style> blocks; React components use
    Tailwind utility classes inline. Only primitives shared across
