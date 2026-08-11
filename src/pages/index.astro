@@ -13,12 +13,28 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav";
 import GuideSeries from "../components/GuideSeries";
 import Newsletter from "../components/Newsletter";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "QueryLock",
+  url: "https://querylock.com/",
+  logo: "https://querylock.com/assets/querylock-transparent.png",
+  description:
+    "QueryLock is a cybersecurity education company that makes security easier to understand through practical guides and hands-on training.",
+  sameAs: [
+    "https://www.linkedin.com/company/querylock/about/",
+    "https://medium.com/@querylock",
+    "https://github.com/querylock",
+  ],
+};
 ---
 
 <Layout
-  title="QueryLock — Security education made practical"
+  title="QueryLock | Security education made practical"
   description="QueryLock makes cybersecurity easier to understand with practical guides and hands-on security training built around your team's needs."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
   <Nav active="home" client:load />
   <main>
     <Hero />
