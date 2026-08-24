@@ -144,7 +144,7 @@ export const guides: GuideLanding[] = [
     thumbnailUrl: "https://public-files.gumroad.com/mocltgdroor78iil3me8lh779ixu",
     priceCents: 999,
     isPWYW: false,
-    readMinutes: 14,
+    readMinutes: 15,
     intro: [
       "Firewall is one of those words that gets thrown around constantly in movies, IT meetings, and security headlines, but few people outside of networking actually know what one does. This guide fixes that, walking through exactly how a firewall decides what traffic to let through and what to block.",
       "You'll learn the difference between the major types of firewalls, including basic, stateful, web application, and next-generation, and see how each one makes its decisions differently. The guide also gets into how firewalls can be tricked or misconfigured, and why relying on a firewall alone is never enough to keep a system safe.",
@@ -265,7 +265,7 @@ export const guides: GuideLanding[] = [
     thumbnailUrl: "https://public-files.gumroad.com/p4gmp903pw2ic6t1sxxjfamvbdd8",
     priceCents: 999,
     isPWYW: false,
-    readMinutes: 11,
+    readMinutes: 10,
     intro: [
       "Your music playlists, your bank balance, your online shopping history, your social media posts. They all have one thing in common: they live in a database. This guide explains how an application can search through all of that stored information and hand back exactly what it's looking for in a fraction of a second.",
       "You'll learn the difference between relational and NoSQL databases and when each one makes sense, how applications actually talk to a database behind the scenes, and why concepts like primary keys and SQL exist in the first place. The guide is written for people who've never touched a database directly, so there's no assumption that you already know SQL.",
